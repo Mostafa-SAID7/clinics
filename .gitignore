@@ -1,42 +1,30 @@
 # Dependencies
 node_modules/
 package-lock.json
-yarn.lock
 
-# Compiled CSS (generated from SASS)
-# Uncomment if you want to commit compiled CSS
-# assets/css/main.css
-# assets/css/main.css.map
+# Build outputs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
 
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
+# Temporary files
+*.tmp
+*.temp
 
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Environment
+# Environment variables
 .env
 .env.local
-.env.*.local
 
-# Build
-dist/
-build/
-.cache/
-
-# Temporary
-tmp/
-temp/
-*.tmp
+# Test files (optional - remove if you want to deploy them)
+test-data.html
+DATA_MIGRATION_SUMMARY.md
+TRANSLATION_FIX.md
+DUPLICATE_CONTROLS_FIX.md
+.vercel

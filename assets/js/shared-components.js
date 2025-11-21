@@ -7,21 +7,13 @@
 
 const SharedComponents = {
     /**
-     * Get theme and language controls HTML
-     */
-    getControls: () => `
-        <div class="theme-controls">
-            <button class="theme-btn" aria-label="Toggle theme">🌙</button>
-            <button class="lang-btn" aria-label="Toggle language">EN</button>
-        </div>
-    `,
-    
-    /**
      * Get chat widget HTML
      */
     getChatWidget: () => `
         <div class="chat-widget">
-            <button class="chat-toggle" aria-label="Open chat">💬</button>
+            <button class="chat-toggle" aria-label="Open chat">
+                <i class="fas fa-comments"></i>
+            </button>
             <div class="chat-window">
                 <div class="chat-header">
                     <h3 data-i18n="chat.title">AI Assistant</h3>
@@ -40,14 +32,14 @@ const SharedComponents = {
      * Inject components into page
      */
     inject: () => {
-        // Check if components already exist
-        if (document.querySelector('.theme-controls')) return;
+        // Check if chat widget already exists
+        if (document.querySelector('.chat-widget')) return;
         
         const body = document.body;
         
         // Create container
         const container = document.createElement('div');
-        container.innerHTML = SharedComponents.getControls() + SharedComponents.getChatWidget();
+        container.innerHTML = SharedComponents.getChatWidget();
         
         // Append to body
         while (container.firstChild) {
