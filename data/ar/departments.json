@@ -1,0 +1,8 @@
+[
+  { "id": "cardiology", "name": "أمراض القلب", "description": "رعاية القلب والأوعية الدموية" },
+  { "id": "pediatrics", "name": "طب الأطفال", "description": "خدمات صحة الأطفال" },
+  { "id": "dermatology", "name": "الأمراض الجلدية", "description": "العناية بالبشرة والعلاج" },
+  { "id": "orthopedics", "name": "جراحة العظام", "description": "رعاية العظام والمفاصل" },
+  { "id": "neurology", "name": "طب الأعصاب", "description": "الدماغ والجهاز العصبي" },
+  { "id": "general", "name": "الطب العام", "description": "خدمات الرعاية الأولية" }
+]

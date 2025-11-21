@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "General Consultation",
+    "description": "Comprehensive medical consultations with experienced physicians for diagnosis, treatment, and preventive care. Our doctors take time to understand your health concerns and provide personalized care plans.",
+    "icon": "consultation",
+    "features": [
+      "Complete Physical Examinations",
+      "Chronic Disease Management",
+      "Health Screening & Prevention",
+      "Medical Certificates & Reports",
+      "Follow-up Care & Monitoring"
+    ],
+    "price": "Starting from $75",
+    "duration": "30-45 minutes"
+  },
+  {
+    "id": 2,
+    "title": "Diagnostic Services",
+    "description": "State-of-the-art diagnostic facilities with advanced imaging and laboratory services. Fast, accurate results with expert interpretation to guide your treatment decisions.",
+    "icon": "diagnostic",
+    "features": [
+      "Complete Blood Count (CBC)",
+      "X-Ray & Ultrasound Imaging",
+      "MRI & CT Scan Services",
+      "ECG & Cardiac Testing",
+      "Pathology & Microbiology"
+    ],
+    "price": "Varies by test",
+    "duration": "15-60 minutes"
+  },
+  {
+    "id": 3,
+    "title": "Specialized Care",
+    "description": "Access to board-certified specialists across multiple medical disciplines. Expert care for complex conditions with the latest treatment protocols and technologies.",
+    "icon": "specialized",
+    "features": [
+      "Cardiology & Heart Care",
+      "Neurology & Brain Health",
+      "Orthopedics & Joint Care",
+      "Gastroenterology Services",
+      "Endocrinology & Diabetes"
+    ],
+    "price": "Starting from $150",
+    "duration": "45-60 minutes"
+  },
+  {
+    "id": 4,
+    "title": "Telemedicine",
+    "description": "Virtual healthcare consultations from the comfort of your home. Secure video calls with licensed physicians, e-prescriptions, and digital health records.",
+    "icon": "telemedicine",
+    "features": [
+      "HD Video Consultations",
+      "Electronic Prescriptions",
+      "Digital Health Records",
+      "Remote Patient Monitoring",
+      "24/7 Medical Advice"
+    ],
+    "price": "Starting from $50",
+    "duration": "20-30 minutes"
+  },
+  {
+    "id": 5,
+    "title": "Emergency Care",
+    "description": "Round-the-clock emergency medical services with rapid response teams. Fully equipped emergency department with trauma care specialists and advanced life support.",
+    "icon": "emergency",
+    "features": [
+      "24/7 Emergency Department",
+      "Ambulance Services",
+      "Trauma & Critical Care",
+      "Emergency Surgery",
+      "Intensive Care Unit (ICU)"
+    ],
+    "price": "Insurance accepted",
+    "duration": "Immediate care"
+  },
+  {
+    "id": 6,
+    "title": "Preventive Care",
+    "description": "Comprehensive wellness programs focused on disease prevention and health optimization. Regular screenings, vaccinations, and lifestyle counseling to keep you healthy.",
+    "icon": "preventive",
+    "features": [
+      "Annual Health Checkups",
+      "Vaccination Programs",
+      "Cancer Screening",
+      "Nutrition Counseling",
+      "Fitness & Wellness Plans"
+    ],
+    "price": "Package deals available",
+    "duration": "1-2 hours"
+  }
+]

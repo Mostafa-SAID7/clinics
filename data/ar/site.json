@@ -1,0 +1,21 @@
+{
+  "name": "ClinicHub",
+  "tagline": "صحتك أولويتنا",
+  "description": "استمتع برعاية صحية عالمية المستوى مع ClinicHub. تواصل مع أفضل الأطباء وأدر رحلتك الصحية بسلاسة مع خدماتنا الطبية الشاملة.",
+  "contact": {
+    "email": "info@clinichub.com",
+    "phone": "4567-123-555-1+",
+    "address": "123 شارع المركز الطبي، جناح 100، نيويورك، NY 10001، الولايات المتحدة"
+  },
+  "hours": {
+    "weekdays": "الإثنين - الجمعة: 8:00 صباحاً - 8:00 مساءً",
+    "saturday": "السبت: 9:00 صباحاً - 5:00 مساءً",
+    "sunday": "الأحد: خدمات الطوارئ فقط"
+  },
+  "social": {
+    "facebook": "https://facebook.com/clinichub",
+    "twitter": "https://twitter.com/clinichub",
+    "instagram": "https://instagram.com/clinichub",
+    "linkedin": "https://linkedin.com/company/clinichub"
+  }
+}

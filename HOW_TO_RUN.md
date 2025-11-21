@@ -2,14 +2,23 @@
 
 ## Quick Start
 
-### Option 1: Using Live Server (VS Code Extension) ⭐ RECOMMENDED
+### Option 1: Using Built-in Server ⭐ RECOMMENDED
+
+```bash
+# Start the server
+npm start
+```
+
+Then open your browser to: **http://localhost:8080**
+
+### Option 2: Using Live Server (VS Code Extension)
 
 1. Install **Live Server** extension in VS Code
 2. Right-click on `index.html`
 3. Select "Open with Live Server"
 4. Browser will open automatically at `http://localhost:5500`
 
-### Option 2: Using Node.js (npx serve)
+### Option 3: Using Node.js (npx serve)
 
 ```bash
 # Install serve globally (one-time)
@@ -24,7 +33,7 @@ npx serve . -p 8000
 
 Then open: `http://localhost:8000`
 
-### Option 3: Using Python
+### Option 4: Using Python
 
 ```bash
 # Python 3
@@ -36,7 +45,7 @@ python -m SimpleHTTPServer 8000
 
 Then open: `http://localhost:8000`
 
-### Option 4: Using PHP
+### Option 5: Using PHP
 
 ```bash
 php -S localhost:8000
@@ -44,7 +53,7 @@ php -S localhost:8000
 
 Then open: `http://localhost:8000`
 
-### Option 5: Direct File Access (Limited)
+### Option 6: Direct File Access (Limited)
 
 Simply open `index.html` in your browser by double-clicking it.
 
@@ -129,8 +138,10 @@ ClinicHub/
 │   ├── scss/              # SASS source
 │   └── js/                # JavaScript
 ├── data/
-│   ├── data.json          # Site data
-│   └── translations.json  # Translations
+│   ├── en/                # English data files
+│   ├── ar/                # Arabic data files
+│   └── README.md          # Data structure docs
+├── server.js              # Built-in Node.js server
 └── docs/                  # Documentation
 ```
 

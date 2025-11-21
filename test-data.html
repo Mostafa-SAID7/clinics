@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Loading Test - ClinicHub</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #0078d4; }
+        h2 { color: #333; border-bottom: 2px solid #0078d4; padding-bottom: 10px; }
+        .status { padding: 10px; border-radius: 4px; margin: 10px 0; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .loading { background: #fff3cd; color: #856404; }
+        pre { background: #f8f9fa; padding: 15px; border-radius: 4px; overflow-x: auto; }
+        button { 
+            background: #0078d4; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #106ebe; }
+    </style>
+</head>
+<body>
+    <h1>🧪 ClinicHub Data Loading Test</h1>
+    
+    <div class="test-section">
+        <h2>Language Selector</h2>
+        <button onclick="testLanguage('en')">Test English (EN)</button>
+        <button onclick="testLanguage('ar')">Test Arabic (AR)</button>
+        <div id="langStatus" class="status loading">Select a language to test...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Site Information</h2>
+        <div id="siteStatus" class="status loading">Waiting...</div>
+        <pre id="siteData">No data loaded yet</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Services</h2>
+        <div id="servicesStatus" class="status loading">Waiting...</div>
+        <pre id="servicesData">No data loaded yet</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Doctors</h2>
+        <div id="doctorsStatus" class="status loading">Waiting...</div>
+        <pre id="doctorsData">No data loaded yet</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Departments</h2>
+        <div id="departmentsStatus" class="status loading">Waiting...</div>
+        <pre id="departmentsData">No data loaded yet</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Stats</h2>
+        <div id="statsStatus" class="status loading">Waiting...</div>
+        <pre id="statsData">No data loaded yet</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Testimonials</h2>
+        <div id="testimonialsStatus" class="status loading">Waiting...</div>
+        <pre id="testimonialsData">No data loaded yet</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>About</h2>
+        <div id="aboutStatus" class="status loading">Waiting...</div>
+        <pre id="aboutData">No data loaded yet</pre>
+    </div>
+
+    <script src="assets/js/ajax-utils.js"></script>
+    <script src="assets/js/data-loader.js"></script>
+    <script>
+        async function testLanguage(lang) {
+            // Set language
+            localStorage.setItem('clinichub_lang', lang);
+            DataLoader.clearCache();
+            
+            const langStatus = document.getElementById('langStatus');
+            langStatus.className = 'status success';
+            langStatus.textContent = `✓ Language set to: ${lang.toUpperCase()}`;
+            
+            // Test all data types
+            await testData('site', DataLoader.getSiteInfo);
+            await testData('services', DataLoader.getServices);
+            await testData('doctors', DataLoader.getDoctors);
+            await testData('departments', DataLoader.getDepartments);
+            await testData('stats', DataLoader.getStats);
+            await testData('testimonials', DataLoader.getTestimonials);
+            await testData('about', DataLoader.getAbout);
+        }
+
+        async function testData(type, fetchFunction) {
+            const statusEl = document.getElementById(`${type}Status`);
+            const dataEl = document.getElementById(`${type}Data`);
+            
+            statusEl.className = 'status loading';
+            statusEl.textContent = `Loading ${type}...`;
+            
+            try {
+                const data = await fetchFunction();
+                
+                if (data) {
+                    statusEl.className = 'status success';
+                    statusEl.textContent = `✓ ${type} loaded successfully!`;
+                    dataEl.textContent = JSON.stringify(data, null, 2);
+                } else {
+                    throw new Error('No data returned');
+                }
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusEl.textContent = `✗ Error loading ${type}: ${error.message}`;
+                dataEl.textContent = error.stack;
+            }
+        }
+
+        // Auto-test English on load
+        window.addEventListener('load', () => {
+            setTimeout(() => testLanguage('en'), 500);
+        });
+    </script>
+</body>
+</html>

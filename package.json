@@ -7,7 +7,9 @@
     "sass": "sass assets/scss/main.scss assets/css/main.css --style=compressed --no-source-map",
     "sass:watch": "sass assets/scss/main.scss assets/css/main.css --watch --style=expanded",
     "sass:dev": "sass assets/scss/main.scss assets/css/main.css --watch --style=expanded --source-map",
-    "build": "npm run sass"
+    "build": "npm run sass",
+    "serve": "node server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "healthcare",

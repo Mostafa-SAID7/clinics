@@ -2,6 +2,20 @@
 
 A production-ready, data-driven healthcare website built with HTML5, modern CSS (Microsoft Fluent Design), and vanilla JavaScript ES6+.
 
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start the server
+npm start
+```
+
+Then open your browser to: **http://localhost:8080**
+
+That's it! The website will load with all features working.
+
 ## 🎨 Design Features
 
 - **Microsoft Fluent Design System** - Acrylic effects, modern shadows, and smooth animations

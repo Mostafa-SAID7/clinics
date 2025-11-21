@@ -6,27 +6,45 @@
 'use strict';
 
 const DataLoader = (() => {
-    let cachedData = null;
+    let cachedData = {};
     // Detect if we're in root or pages folder
     const isInPages = window.location.pathname.includes('/pages/');
-    const DATA_PATH = isInPages ? '../data/data.json' : 'data/data.json';
+    const DATA_BASE_PATH = isInPages ? '../data' : 'data';
+    
+    /**
+     * Get data path for current language and file type
+     * @param {string} type - Type of data (site, services, doctors, etc.)
+     * @returns {string} Path to data file
+     */
+    const getDataPath = (type) => {
+        const currentLang = localStorage.getItem('clinichub_lang') || 'en';
+        return `${DATA_BASE_PATH}/${currentLang}/${type}.json`;
+    };
     
     /**
      * Fetch data from JSON file using AJAX
-     * @returns {Promise<Object>} Data object
+     * @param {string} type - Type of data to fetch
+     * @param {boolean} forceReload - Force reload data
+     * @returns {Promise<Object|Array>} Data object or array
      */
-    const fetchData = async () => {
-        if (cachedData) {
-            return cachedData;
+    const fetchData = async (type, forceReload = false) => {
+        const currentLang = localStorage.getItem('clinichub_lang') || 'en';
+        const cacheKey = `${currentLang}_${type}`;
+        
+        // Return cached data if available and not forcing reload
+        if (cachedData[cacheKey] && !forceReload) {
+            return cachedData[cacheKey];
         }
         
         try {
+            const dataPath = getDataPath(type);
+            
             // Use AjaxUtils if available, otherwise fallback to XMLHttpRequest
             if (typeof AjaxUtils !== 'undefined') {
-                cachedData = await AjaxUtils.loadJSON(DATA_PATH);
+                cachedData[cacheKey] = await AjaxUtils.loadJSON(dataPath);
             } else {
                 // Fallback XMLHttpRequest
-                cachedData = await new Promise((resolve, reject) => {
+                cachedData[cacheKey] = await new Promise((resolve, reject) => {
                     const xhr = new XMLHttpRequest();
                     xhr.onreadystatechange = function() {
                         if (xhr.readyState === 4) {
@@ -42,18 +60,25 @@ const DataLoader = (() => {
                         }
                     };
                     xhr.onerror = () => reject(new Error('Network error'));
-                    xhr.open('GET', DATA_PATH, true);
+                    xhr.open('GET', dataPath, true);
                     xhr.timeout = 10000;
                     xhr.send();
                 });
             }
             
-            console.log('✓ Data loaded successfully via AJAX');
-            return cachedData;
+            console.log(`✓ ${type} data loaded successfully for ${currentLang} via AJAX`);
+            return cachedData[cacheKey];
         } catch (error) {
-            console.error('✗ Error loading data:', error);
+            console.error(`✗ Error loading ${type} data:`, error);
             return null;
         }
+    };
+    
+    /**
+     * Clear cached data (useful when switching languages)
+     */
+    const clearCache = () => {
+        cachedData = {};
     };
     
     /**
@@ -61,8 +86,8 @@ const DataLoader = (() => {
      * @returns {Promise<Object>} Site data
      */
     const getSiteInfo = async () => {
-        const data = await fetchData();
-        return data?.site || {};
+        const data = await fetchData('site');
+        return data || {};
     };
     
     /**
@@ -70,8 +95,8 @@ const DataLoader = (() => {
      * @returns {Promise<Array>} Services array
      */
     const getServices = async () => {
-        const data = await fetchData();
-        return data?.services || [];
+        const data = await fetchData('services');
+        return data || [];
     };
     
     /**
@@ -79,8 +104,8 @@ const DataLoader = (() => {
      * @returns {Promise<Array>} Doctors array
      */
     const getDoctors = async () => {
-        const data = await fetchData();
-        return data?.doctors || [];
+        const data = await fetchData('doctors');
+        return data || [];
     };
     
     /**
@@ -88,8 +113,8 @@ const DataLoader = (() => {
      * @returns {Promise<Array>} Departments array
      */
     const getDepartments = async () => {
-        const data = await fetchData();
-        return data?.departments || [];
+        const data = await fetchData('departments');
+        return data || [];
     };
     
     /**
@@ -97,8 +122,8 @@ const DataLoader = (() => {
      * @returns {Promise<Array>} Stats array
      */
     const getStats = async () => {
-        const data = await fetchData();
-        return data?.stats || [];
+        const data = await fetchData('stats');
+        return data || [];
     };
     
     /**
@@ -106,8 +131,17 @@ const DataLoader = (() => {
      * @returns {Promise<Array>} Testimonials array
      */
     const getTestimonials = async () => {
-        const data = await fetchData();
-        return data?.testimonials || [];
+        const data = await fetchData('testimonials');
+        return data || [];
+    };
+    
+    /**
+     * Get about information
+     * @returns {Promise<Object>} About data
+     */
+    const getAbout = async () => {
+        const data = await fetchData('about');
+        return data || {};
     };
     
     /**
@@ -148,6 +182,9 @@ const DataLoader = (() => {
         getDepartments,
         getStats,
         getTestimonials,
-        populateFooter
+        getAbout,
+        populateFooter,
+        clearCache,
+        fetchData
     };
 })();

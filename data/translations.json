@@ -1,120 +1,158 @@
 {
   "en": {
     "nav": {
+      "home": "Home",
       "services": "Services",
       "doctors": "Doctors",
-      "about": "About",
+      "appointment": "Book Appointment",
+      "bookAppointment": "Book Appointment",
       "contact": "Contact",
-      "bookAppointment": "Book Appointment"
+      "about": "About"
     },
     "hero": {
       "title": "Your Health, Our Priority",
-      "subtitle": "Experience world-class healthcare with ClinicHub. Connect with top doctors and manage your health journey seamlessly.",
-      "bookNow": "Book Appointment",
-      "ourServices": "Our Services"
+      "subtitle": "Experience world-class healthcare with our expert doctors and modern facilities",
+      "cta": "Book Appointment",
+      "learnMore": "Learn More"
     },
     "sections": {
       "services": "Our Services",
       "servicesSubtitle": "Comprehensive healthcare solutions tailored to your needs",
       "doctors": "Meet Our Doctors",
-      "doctorsSubtitle": "Experienced professionals dedicated to your wellbeing"
+      "doctorsSubtitle": "Experienced professionals dedicated to your wellbeing",
+      "stats": "Our Achievements",
+      "testimonials": "Patient Testimonials",
+      "about": "About Us",
+      "contact": "Contact Us"
     },
-    "stats": {
-      "patients": "Happy Patients",
-      "doctors": "Expert Doctors",
-      "experience": "Years Experience",
-      "services": "Medical Services"
-    },
-    "footer": {
-      "quickLinks": "Quick Links",
-      "contact": "Contact",
-      "hours": "Hours",
-      "rights": "All rights reserved"
+    "buttons": {
+      "bookNow": "Book Now",
+      "viewAll": "View All",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "save": "Save",
+      "send": "Send Message"
     },
     "form": {
       "fullName": "Full Name",
-      "email": "Email",
+      "email": "Email Address",
       "phone": "Phone Number",
       "date": "Preferred Date",
-      "department": "Department",
-      "message": "Message (Optional)",
-      "submit": "Book Appointment",
-      "selectDepartment": "Select Department",
+      "department": "Select Department",
+      "message": "Message",
       "required": "This field is required",
-      "invalidEmail": "Please enter a valid email address",
-      "invalidPhone": "Please enter a valid phone number",
-      "invalidDate": "Please select a future date",
-      "success": "Appointment booked successfully! We will contact you soon.",
-      "error": "Please fix the errors in the form"
+      "invalidEmail": "Please enter a valid email",
+      "invalidPhone": "Please enter a valid phone number"
     },
-    "chat": {
-      "title": "AI Assistant",
-      "placeholder": "Ask me anything about our services...",
-      "send": "Send",
-      "greeting": "Hello! I'm your ClinicHub AI assistant. How can I help you today?"
+    "footer": {
+      "about": "About ClinicHub",
+      "quickLinks": "Quick Links",
+      "contact": "Contact Info",
+      "hours": "Working Hours",
+      "followUs": "Follow Us",
+      "rights": "All rights reserved"
     },
     "theme": {
       "light": "Light Mode",
-      "dark": "Dark Mode"
+      "dark": "Dark Mode",
+      "toggle": "Toggle Theme"
+    },
+    "language": {
+      "english": "English",
+      "arabic": "Arabic",
+      "toggle": "Switch Language"
+    },
+    "chat": {
+      "title": "AI Health Assistant",
+      "placeholder": "Ask me anything about health...",
+      "send": "Send",
+      "close": "Close"
+    },
+    "common": {
+      "loading": "Loading...",
+      "error": "An error occurred",
+      "success": "Success!",
+      "tryAgain": "Try Again",
+      "readMore": "Read More",
+      "viewDetails": "View Details"
     }
   },
   "ar": {
     "nav": {
+      "home": "الرئيسية",
       "services": "الخدمات",
       "doctors": "الأطباء",
-      "about": "من نحن",
+      "appointment": "حجز موعد",
+      "bookAppointment": "حجز موعد",
       "contact": "اتصل بنا",
-      "bookAppointment": "احجز موعد"
+      "about": "من نحن"
     },
     "hero": {
       "title": "صحتك أولويتنا",
-      "subtitle": "استمتع برعاية صحية عالمية المستوى مع ClinicHub. تواصل مع أفضل الأطباء وأدر رحلتك الصحية بسلاسة.",
-      "bookNow": "احجز موعد",
-      "ourServices": "خدماتنا"
+      "subtitle": "استمتع برعاية صحية عالمية المستوى مع أطبائنا الخبراء ومرافقنا الحديثة",
+      "cta": "احجز موعد",
+      "learnMore": "اعرف المزيد"
     },
     "sections": {
       "services": "خدماتنا",
       "servicesSubtitle": "حلول رعاية صحية شاملة مصممة خصيصاً لاحتياجاتك",
       "doctors": "تعرف على أطبائنا",
-      "doctorsSubtitle": "محترفون ذوو خبرة مكرسون لرفاهيتك"
+      "doctorsSubtitle": "محترفون ذوو خبرة مكرسون لرفاهيتك",
+      "stats": "إنجازاتنا",
+      "testimonials": "آراء المرضى",
+      "about": "من نحن",
+      "contact": "اتصل بنا"
     },
-    "stats": {
-      "patients": "مريض سعيد",
-      "doctors": "طبيب خبير",
-      "experience": "سنوات خبرة",
-      "services": "خدمة طبية"
-    },
-    "footer": {
-      "quickLinks": "روابط سريعة",
-      "contact": "اتصل بنا",
-      "hours": "ساعات العمل",
-      "rights": "جميع الحقوق محفوظة"
+    "buttons": {
+      "bookNow": "احجز الآن",
+      "viewAll": "عرض الكل",
+      "submit": "إرسال",
+      "cancel": "إلغاء",
+      "save": "حفظ",
+      "send": "إرسال الرسالة"
     },
     "form": {
       "fullName": "الاسم الكامل",
       "email": "البريد الإلكتروني",
       "phone": "رقم الهاتف",
       "date": "التاريخ المفضل",
-      "department": "القسم",
-      "message": "رسالة (اختياري)",
-      "submit": "احجز موعد",
-      "selectDepartment": "اختر القسم",
+      "department": "اختر القسم",
+      "message": "الرسالة",
       "required": "هذا الحقل مطلوب",
-      "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صالح",
-      "invalidPhone": "يرجى إدخال رقم هاتف صالح",
-      "invalidDate": "يرجى اختيار تاريخ مستقبلي",
-      "success": "تم حجز الموعد بنجاح! سنتواصل معك قريباً.",
-      "error": "يرجى إصلاح الأخطاء في النموذج"
+      "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+      "invalidPhone": "يرجى إدخال رقم هاتف صحيح"
     },
-    "chat": {
-      "title": "المساعد الذكي",
-      "placeholder": "اسألني أي شيء عن خدماتنا...",
-      "send": "إرسال",
-      "greeting": "مرحباً! أنا مساعد ClinicHub الذكي. كيف يمكنني مساعدتك اليوم؟"
+    "footer": {
+      "about": "عن ClinicHub",
+      "quickLinks": "روابط سريعة",
+      "contact": "معلومات الاتصال",
+      "hours": "ساعات العمل",
+      "followUs": "تابعنا",
+      "rights": "جميع الحقوق محفوظة"
     },
     "theme": {
-      "light": "الوضع النهاري",
-      "dark": "الوضع الليلي"
+      "light": "الوضع الفاتح",
+      "dark": "الوضع الداكن",
+      "toggle": "تبديل المظهر"
+    },
+    "language": {
+      "english": "الإنجليزية",
+      "arabic": "العربية",
+      "toggle": "تبديل اللغة"
+    },
+    "chat": {
+      "title": "مساعد الصحة الذكي",
+      "placeholder": "اسألني أي شيء عن الصحة...",
+      "send": "إرسال",
+      "close": "إغلاق"
+    },
+    "common": {
+      "loading": "جاري التحميل...",
+      "error": "حدث خطأ",
+      "success": "نجح!",
+      "tryAgain": "حاول مرة أخرى",
+      "readMore": "اقرأ المزيد",
+      "viewDetails": "عرض التفاصيل"
     }
   }
 }

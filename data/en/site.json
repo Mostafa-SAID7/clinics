@@ -1,0 +1,21 @@
+{
+  "name": "ClinicHub",
+  "tagline": "Your Health, Our Priority",
+  "description": "Experience world-class healthcare with ClinicHub. Connect with top doctors and manage your health journey seamlessly with our comprehensive medical services.",
+  "contact": {
+    "email": "info@clinichub.com",
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Medical Center Drive, Suite 100, New York, NY 10001, United States"
+  },
+  "hours": {
+    "weekdays": "Monday - Friday: 8:00 AM - 8:00 PM",
+    "saturday": "Saturday: 9:00 AM - 5:00 PM",
+    "sunday": "Sunday: Emergency Services Only"
+  },
+  "social": {
+    "facebook": "https://facebook.com/clinichub",
+    "twitter": "https://twitter.com/clinichub",
+    "instagram": "https://instagram.com/clinichub",
+    "linkedin": "https://linkedin.com/company/clinichub"
+  }
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Sarah Johnson",
+    "specialty": "Cardiologist",
+    "experience": "15+ years experience",
+    "education": "MD, Harvard Medical School",
+    "bio": "Dr. Johnson is a board-certified cardiologist specializing in preventive cardiology and heart disease management. She has published numerous research papers on cardiovascular health.",
+    "rating": 4.9,
+    "patients": 2500,
+    "availability": "Monday, Wednesday, Friday",
+    "languages": ["English", "Spanish"],
+    "certifications": ["Board Certified in Cardiology", "Fellow of American College of Cardiology"]
+  },
+  {
+    "id": 2,
+    "name": "Dr. Michael Chen",
+    "specialty": "Pediatrician",
+    "experience": "12+ years experience",
+    "education": "MD, Johns Hopkins University",
+    "bio": "Dr. Chen is dedicated to providing comprehensive pediatric care from newborns to adolescents. He specializes in childhood development and preventive pediatrics.",
+    "rating": 4.8,
+    "patients": 3200,
+    "availability": "Tuesday, Thursday, Saturday",
+    "languages": ["English", "Mandarin"],
+    "certifications": ["Board Certified in Pediatrics", "Pediatric Advanced Life Support"]
+  },
+  {
+    "id": 3,
+    "name": "Dr. Emily Rodriguez",
+    "specialty": "Dermatologist",
+    "experience": "10+ years experience",
+    "education": "MD, Stanford University",
+    "bio": "Dr. Rodriguez specializes in medical and cosmetic dermatology. She is an expert in treating skin conditions and providing advanced aesthetic treatments.",
+    "rating": 4.9,
+    "patients": 1800,
+    "availability": "Monday, Tuesday, Thursday",
+    "languages": ["English", "Spanish", "Portuguese"],
+    "certifications": ["Board Certified in Dermatology", "Cosmetic Dermatology Specialist"]
+  },
+  {
+    "id": 4,
+    "name": "Dr. James Wilson",
+    "specialty": "Orthopedic Surgeon",
+    "experience": "18+ years experience",
+    "education": "MD, Yale School of Medicine",
+    "bio": "Dr. Wilson is a renowned orthopedic surgeon specializing in sports medicine and joint replacement. He has performed over 5,000 successful surgeries.",
+    "rating": 5.0,
+    "patients": 2100,
+    "availability": "Wednesday, Friday, Saturday",
+    "languages": ["English"],
+    "certifications": ["Board Certified in Orthopedic Surgery", "Sports Medicine Specialist"]
+  },
+  {
+    "id": 5,
+    "name": "Dr. Aisha Patel",
+    "specialty": "Neurologist",
+    "experience": "14+ years experience",
+    "education": "MD, Columbia University",
+    "bio": "Dr. Patel specializes in treating neurological disorders including migraines, epilepsy, and movement disorders. She uses the latest diagnostic and treatment technologies.",
+    "rating": 4.9,
+    "patients": 1950,
+    "availability": "Monday, Wednesday, Friday",
+    "languages": ["English", "Hindi", "Gujarati"],
+    "certifications": ["Board Certified in Neurology", "Clinical Neurophysiology"]
+  },
+  {
+    "id": 6,
+    "name": "Dr. Robert Martinez",
+    "specialty": "General Surgeon",
+    "experience": "20+ years experience",
+    "education": "MD, University of Pennsylvania",
+    "bio": "Dr. Martinez is an experienced general surgeon with expertise in minimally invasive and laparoscopic procedures. He focuses on patient-centered surgical care.",
+    "rating": 4.8,
+    "patients": 2800,
+    "availability": "Tuesday, Thursday, Saturday",
+    "languages": ["English", "Spanish"],
+    "certifications": ["Board Certified in General Surgery", "Fellow of American College of Surgeons"]
+  }
+]

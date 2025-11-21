@@ -1,0 +1,8 @@
+[
+  { "id": "cardiology", "name": "Cardiology", "description": "Heart and cardiovascular care" },
+  { "id": "pediatrics", "name": "Pediatrics", "description": "Children's health services" },
+  { "id": "dermatology", "name": "Dermatology", "description": "Skin care and treatment" },
+  { "id": "orthopedics", "name": "Orthopedics", "description": "Bone and joint care" },
+  { "id": "neurology", "name": "Neurology", "description": "Brain and nervous system" },
+  { "id": "general", "name": "General Medicine", "description": "Primary care services" }
+]

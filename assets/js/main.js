@@ -397,6 +397,13 @@ const LanguageToggle = (() => {
     const handleToggle = async () => {
         const newLang = I18n.toggleLanguage();
         updateButton();
+        
+        // Clear data cache to load new language data
+        if (typeof DataLoader !== 'undefined' && DataLoader.clearCache) {
+            DataLoader.clearCache();
+        }
+        
+        // Update static translations
         I18n.updatePageContent();
         
         // Update chat placeholder if exists
@@ -405,7 +412,7 @@ const LanguageToggle = (() => {
             chatInput.placeholder = I18n.t('chat.placeholder');
         }
         
-        // Reload dynamic content
+        // Reload dynamic content with new language
         if (typeof window.reloadPageContent === 'function') {
             await window.reloadPageContent();
         }
