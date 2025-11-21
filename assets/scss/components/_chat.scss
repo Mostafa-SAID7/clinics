@@ -1,0 +1,237 @@
+// ===================================
+// AI CHAT WIDGET - FLUENT DESIGN
+// ===================================
+
+.chat-widget {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  z-index: $z-index-modal;
+  
+  @include respond-below(md) {
+    bottom: $spacing-md;
+    right: $spacing-md;
+  }
+  
+  [dir="rtl"] & {
+    right: auto;
+    left: $spacing-xl;
+    
+    @include respond-below(md) {
+      left: $spacing-md;
+    }
+  }
+}
+
+.chat-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: $border-radius-full;
+  background: linear-gradient(135deg, $color-primary, $color-accent);
+  color: $color-white;
+  border: none;
+  @include fluent-shadow(16);
+  cursor: pointer;
+  @include flex-center;
+  font-size: $font-size-2xl;
+  @include transition(all);
+  
+  &:hover {
+    transform: scale(1.1);
+    @include fluent-shadow(64);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  @include respond-below(md) {
+    width: 50px;
+    height: 50px;
+    font-size: $font-size-xl;
+  }
+}
+
+.chat-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 380px;
+  height: 500px;
+  @include acrylic(0.95);
+  border: 1px solid $acrylic-border-light;
+  border-radius: $border-radius-xl;
+  @include fluent-shadow(64);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  [dir="rtl"] & {
+    right: auto;
+    left: 0;
+  }
+  
+  &.active {
+    display: flex;
+    animation: slideUp 0.3s ease;
+  }
+  
+  @include respond-below(md) {
+    width: calc(100vw - 2rem);
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    height: 450px;
+  }
+}
+
+.chat-header {
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, $color-primary, $color-accent);
+  color: $color-white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    margin: 0;
+    color: $color-white;
+  }
+}
+
+.chat-close {
+  background: none;
+  border: none;
+  color: $color-white;
+  font-size: $font-size-xl;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  @include flex-center;
+  border-radius: $border-radius-full;
+  @include transition(background);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.chat-messages {
+  flex: 1;
+  padding: $spacing-lg;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  @include custom-scrollbar;
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  animation: fadeIn 0.3s ease;
+  word-wrap: break-word;
+  
+  &.bot {
+    align-self: flex-start;
+    background: $color-gray-100;
+    color: $color-gray-800;
+    border-bottom-left-radius: $border-radius-sm;
+    
+    [data-theme="dark"] & {
+      background: $dark-bg-tertiary;
+      color: $dark-text-primary;
+    }
+  }
+  
+  &.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, $color-primary, darken($color-primary, 5%));
+    color: $color-white;
+    border-bottom-right-radius: $border-radius-sm;
+  }
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: $spacing-md;
+  
+  span {
+    width: 8px;
+    height: 8px;
+    border-radius: $border-radius-full;
+    background: $color-gray-400;
+    animation: typing 1.4s infinite;
+    
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  }
+}
+
+.chat-input-container {
+  padding: $spacing-lg;
+  border-top: 1px solid $acrylic-border-light;
+  display: flex;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+  
+  [data-theme="dark"] & {
+    border-top-color: $acrylic-border-dark;
+  }
+}
+
+.chat-input {
+  flex: 1;
+  padding: $spacing-md;
+  border: 1px solid $color-gray-200;
+  border-radius: $border-radius;
+  background: $color-white;
+  color: $color-gray-800;
+  @include transition(border-color, box-shadow);
+  
+  [data-theme="dark"] & {
+    background: $dark-bg-tertiary;
+    border-color: $dark-border;
+    color: $dark-text-primary;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.1);
+  }
+}
+
+.chat-send {
+  padding: $spacing-md $spacing-lg;
+  background: $color-primary;
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-weight: $font-weight-semibold;
+  @include transition(background, transform);
+  
+  &:hover {
+    background: $color-primary-dark;
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}

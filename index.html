@@ -7,6 +7,8 @@
     <meta name="keywords" content="clinic, healthcare, medical services, appointments, doctors">
     <meta name="author" content="ClinicHub">
     <title>ClinicHub - Your Healthcare Partner</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -22,15 +24,21 @@
                     <span>ClinicHub</span>
                 </a>
             </div>
-            <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="nav__toggle-icon"></span>
-            </button>
+            <div class="nav__actions">
+                <button class="theme-btn" aria-label="Toggle theme" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-btn" aria-label="Toggle language" title="Toggle language">EN</button>
+                <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="nav__toggle-icon"></span>
+                </button>
+            </div>
             <ul class="nav__menu" role="list">
-                <li><a href="pages/services.html" class="nav__link">Services</a></li>
-                <li><a href="pages/doctors.html" class="nav__link">Doctors</a></li>
-                <li><a href="pages/about.html" class="nav__link">About</a></li>
-                <li><a href="pages/contact.html" class="nav__link">Contact</a></li>
-                <li><a href="pages/appointment.html" class="btn btn--primary btn--small">Book Appointment</a></li>
+                <li><a href="pages/services.html" class="nav__link" data-i18n="nav.services">Services</a></li>
+                <li><a href="pages/doctors.html" class="nav__link" data-i18n="nav.doctors">Doctors</a></li>
+                <li><a href="pages/about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+                <li><a href="pages/contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+                <li><a href="pages/appointment.html" class="btn btn--primary btn--small" data-i18n="nav.bookAppointment">Book Appointment</a></li>
             </ul>
         </nav>
     </header>
@@ -64,8 +72,8 @@
     <!-- Services Section -->
     <section id="services" class="services section" role="region" aria-labelledby="services-title">
         <div class="container">
-            <h2 id="services-title" class="section__title">Our Services</h2>
-            <p class="section__subtitle">Comprehensive healthcare solutions tailored to your needs</p>
+            <h2 id="services-title" class="section__title" data-i18n="sections.services">Our Services</h2>
+            <p class="section__subtitle" data-i18n="sections.servicesSubtitle">Comprehensive healthcare solutions tailored to your needs</p>
             <div id="servicesGrid" class="services__grid"></div>
         </div>
     </section>
@@ -73,8 +81,8 @@
     <!-- Doctors Section -->
     <section id="doctors" class="doctors section section--alt" role="region" aria-labelledby="doctors-title">
         <div class="container">
-            <h2 id="doctors-title" class="section__title">Meet Our Doctors</h2>
-            <p class="section__subtitle">Experienced professionals dedicated to your wellbeing</p>
+            <h2 id="doctors-title" class="section__title" data-i18n="sections.doctors">Meet Our Doctors</h2>
+            <p class="section__subtitle" data-i18n="sections.doctorsSubtitle">Experienced professionals dedicated to your wellbeing</p>
             <div id="doctorsGrid" class="doctors__grid"></div>
         </div>
     </section>
@@ -113,10 +121,31 @@
         </div>
     </footer>
 
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" aria-label="Open chat">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div class="chat-window">
+            <div class="chat-header">
+                <h3 data-i18n="chat.title">AI Assistant</h3>
+                <button class="chat-close" aria-label="Close chat">×</button>
+            </div>
+            <div class="chat-messages"></div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" data-i18n="chat.placeholder" placeholder="Ask me anything...">
+                <button class="chat-send" data-i18n="chat.send">Send</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification -->
     <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
 
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/theme.js"></script>
     <script src="assets/js/data-loader.js"></script>
+    <script src="assets/js/chat-ai.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/home.js"></script>
 </body>

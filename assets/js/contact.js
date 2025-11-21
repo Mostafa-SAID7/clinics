@@ -16,22 +16,30 @@
         
         contactInfo.innerHTML = `
             <div class="contact-card">
-                <div class="contact-card__icon">📧</div>
+                <div class="contact-card__icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
                 <h3 class="contact-card__title">Email Us</h3>
                 <p class="contact-card__info">${contact.email}</p>
             </div>
             <div class="contact-card">
-                <div class="contact-card__icon">📞</div>
+                <div class="contact-card__icon">
+                    <i class="fas fa-phone"></i>
+                </div>
                 <h3 class="contact-card__title">Call Us</h3>
                 <p class="contact-card__info">${contact.phone}</p>
             </div>
             <div class="contact-card">
-                <div class="contact-card__icon">📍</div>
+                <div class="contact-card__icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
                 <h3 class="contact-card__title">Visit Us</h3>
                 <p class="contact-card__info">${contact.address}</p>
             </div>
             <div class="contact-card">
-                <div class="contact-card__icon">🕐</div>
+                <div class="contact-card__icon">
+                    <i class="fas fa-clock"></i>
+                </div>
                 <h3 class="contact-card__title">Working Hours</h3>
                 <p class="contact-card__info">
                     ${hours.weekdays}<br>

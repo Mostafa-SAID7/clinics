@@ -1,0 +1,236 @@
+// ===================================
+// FORM COMPONENTS - FLUENT DESIGN
+// ===================================
+
+// Appointment Section
+.appointment {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-3xl;
+    align-items: start;
+    
+    @include respond-below(lg) {
+      grid-template-columns: 1fr;
+      gap: $spacing-2xl;
+    }
+  }
+  
+  &__info {
+    position: sticky;
+    top: 100px;
+    
+    @include respond-below(lg) {
+      position: static;
+    }
+  }
+  
+  &__features {
+    margin-top: $spacing-xl;
+    
+    li {
+      padding: $spacing-md 0;
+      padding-left: $spacing-xl;
+      position: relative;
+      color: $color-gray-700;
+      
+      [data-theme="dark"] & {
+        color: $dark-text-secondary;
+      }
+      
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: $color-secondary;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-lg;
+      }
+    }
+    
+    [dir="rtl"] & {
+      li {
+        padding-left: 0;
+        padding-right: $spacing-xl;
+        
+        &::before {
+          left: auto;
+          right: 0;
+        }
+      }
+    }
+  }
+  
+  &__form {
+    @include acrylic(0.7);
+    padding: $spacing-2xl;
+    border-radius: $border-radius-lg;
+    border: 1px solid $acrylic-border-light;
+    @include fluent-shadow(8);
+    
+    [data-theme="dark"] & {
+      border-color: $acrylic-border-dark;
+    }
+    
+    @include respond-below(sm) {
+      padding: $spacing-lg;
+    }
+  }
+}
+
+// Form Groups
+.form-group {
+  margin-bottom: $spacing-lg;
+  
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.form-label {
+  display: block;
+  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-gray-700;
+  font-size: $font-size-sm;
+  
+  [data-theme="dark"] & {
+    color: $dark-text-secondary;
+  }
+}
+
+.form-input {
+  width: 100%;
+  padding: $spacing-md;
+  border: 2px solid $color-gray-200;
+  border-radius: $border-radius;
+  background: $color-white;
+  color: $color-gray-800;
+  font-size: $font-size-base;
+  @include transition(border-color, box-shadow, background);
+  
+  [data-theme="dark"] & {
+    background: $dark-bg-tertiary;
+    border-color: $dark-border;
+    color: $dark-text-primary;
+  }
+  
+  @include placeholder {
+    color: $color-gray-400;
+    
+    [data-theme="dark"] & {
+      color: $color-gray-500;
+    }
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    
+    [data-theme="dark"] & {
+      box-shadow: 0 0 0 3px rgba($color-primary-light, 0.2);
+    }
+  }
+  
+  &.error {
+    border-color: $color-error;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-error, 0.1);
+    }
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: $color-gray-100;
+    
+    [data-theme="dark"] & {
+      background: $dark-bg-secondary;
+    }
+  }
+}
+
+// Textarea
+textarea.form-input {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+// Select
+select.form-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-md center;
+  padding-right: $spacing-2xl;
+  
+  [dir="rtl"] & {
+    background-position: left $spacing-md center;
+    padding-right: $spacing-md;
+    padding-left: $spacing-2xl;
+  }
+  
+  [data-theme="dark"] & {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23e5e5e5' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  }
+}
+
+// Form Error
+.form-error {
+  display: block;
+  color: $color-error;
+  font-size: $font-size-sm;
+  margin-top: $spacing-xs;
+  min-height: 20px;
+  font-weight: $font-weight-medium;
+}
+
+// Checkbox & Radio
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: $color-primary;
+  }
+  
+  label {
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+// Input Group
+.input-group {
+  display: flex;
+  gap: $spacing-sm;
+  
+  .form-input {
+    flex: 1;
+  }
+  
+  @include respond-below(sm) {
+    flex-direction: column;
+  }
+}
+
+// Form Row
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+  
+  @include respond-below(sm) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,146 @@
+// ===================================
+// BASE STYLES & RESET
+// ===================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $color-gray-800;
+  background: linear-gradient(135deg, $color-gray-50 0%, lighten($color-gray-100, 2%) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  
+  @include transition(background-color, color);
+}
+
+// Dark Theme
+[data-theme="dark"] {
+  body {
+    background: linear-gradient(135deg, $dark-bg-primary 0%, $dark-bg-secondary 100%);
+    color: $dark-text-secondary;
+  }
+}
+
+// RTL Support
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  color: $color-gray-900;
+  margin-bottom: $spacing-md;
+  
+  [data-theme="dark"] & {
+    color: $dark-text-primary;
+  }
+}
+
+h1 { font-size: $font-size-5xl; }
+h2 { font-size: $font-size-4xl; }
+h3 { font-size: $font-size-3xl; }
+h4 { font-size: $font-size-2xl; }
+h5 { font-size: $font-size-xl; }
+h6 { font-size: $font-size-lg; }
+
+p {
+  margin-bottom: $spacing-md;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  @include transition(color, opacity);
+  
+  &:hover {
+    color: $color-primary-dark;
+  }
+  
+  @include focus-visible;
+}
+
+// Media Elements
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Form Elements
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// Selection
+@include selection($color-primary, $color-white);
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Focus Visible
+:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+// Screen Reader Only
+.sr-only {
+  @include visually-hidden;
+}

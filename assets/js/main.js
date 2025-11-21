@@ -375,6 +375,45 @@ const HeaderScroll = (() => {
 })();
 
 // ===================================
+// LANGUAGE TOGGLE MODULE
+// ===================================
+const LanguageToggle = (() => {
+    const langBtn = document.querySelector('.lang-btn');
+    
+    /**
+     * Update language button text
+     */
+    const updateButton = () => {
+        if (langBtn) {
+            const currentLang = I18n.getCurrentLanguage();
+            langBtn.textContent = currentLang.toUpperCase();
+        }
+    };
+    
+    /**
+     * Initialize language toggle
+     */
+    const init = () => {
+        if (!langBtn) return;
+        
+        updateButton();
+        
+        langBtn.addEventListener('click', async () => {
+            I18n.toggleLanguage();
+            updateButton();
+            I18n.updatePageContent();
+            
+            // Reload dynamic content
+            if (typeof window.reloadPageContent === 'function') {
+                await window.reloadPageContent();
+            }
+        });
+    };
+    
+    return { init, updateButton };
+})();
+
+// ===================================
 // APPLICATION INITIALIZATION
 // ===================================
 const App = (() => {
@@ -393,12 +432,29 @@ const App = (() => {
     /**
      * Initialize all application modules
      */
-    const initModules = () => {
+    const initModules = async () => {
         try {
+            // Initialize i18n first
+            if (typeof I18n !== 'undefined') {
+                await I18n.init();
+            }
+            
+            // Initialize theme
+            if (typeof Theme !== 'undefined') {
+                Theme.init();
+            }
+            
+            // Initialize other modules
             Navigation.init();
             FormValidation.init();
             ScrollAnimations.init();
             HeaderScroll.init();
+            LanguageToggle.init();
+            
+            // Initialize chat AI
+            if (typeof ChatAI !== 'undefined') {
+                ChatAI.init();
+            }
             
             console.log('ClinicHub application initialized successfully');
         } catch (error) {

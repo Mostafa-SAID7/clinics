@@ -4,7 +4,7 @@
 
 'use strict';
 
-(async () => {
+const loadHomeContent = async () => {
     const iconMap = {
         consultation: '<rect x="20" y="12" width="8" height="24" fill="currentColor"/><rect x="12" y="20" width="24" height="8" fill="currentColor"/>',
         diagnostic: '<circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="4" fill="none"/>',
@@ -79,4 +79,10 @@
     } catch (error) {
         console.error('Error loading home page data:', error);
     }
-})();
+};
+
+// Make reload function available globally
+window.reloadPageContent = loadHomeContent;
+
+// Initial load
+loadHomeContent();

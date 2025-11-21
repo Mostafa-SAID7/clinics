@@ -1,0 +1,352 @@
+// ===================================
+// CARD COMPONENTS - FLUENT DESIGN
+// ===================================
+
+// Base Card
+.card {
+  @include acrylic(0.7);
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  border: 1px solid $acrylic-border-light;
+  @include fluent-shadow(4);
+  @include transition(transform, box-shadow, border-color);
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  &:hover {
+    @include hover-lift(-4px, 16);
+    border-color: $color-primary;
+  }
+}
+
+// Service Cards
+.services__grid {
+  @include grid-auto-fit(280px, $spacing-xl);
+}
+
+.service-card {
+  @include acrylic(0.7);
+  padding: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  border: 1px solid $acrylic-border-light;
+  @include fluent-shadow(4);
+  @include transition(all);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  // Top accent bar
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $color-primary, $color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    @include transition(transform);
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    @include fluent-shadow(16);
+    border-color: $color-primary;
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+  
+  &__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-lg;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba($color-primary, 0.1), rgba($color-accent, 0.1));
+    border-radius: $border-radius-lg;
+    @include transition(transform);
+    
+    svg {
+      @include transition(transform);
+    }
+  }
+  
+  &:hover &__icon {
+    transform: scale(1.1);
+    
+    svg {
+      transform: rotate(5deg);
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-md;
+    color: $color-gray-900;
+    
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+  
+  &__description {
+    color: $color-gray-600;
+    line-height: 1.7;
+    margin-bottom: $spacing-md;
+    
+    [data-theme="dark"] & {
+      color: $color-gray-400;
+    }
+  }
+  
+  &__features {
+    margin-top: $spacing-lg;
+    text-align: left;
+    
+    li {
+      padding: $spacing-sm 0;
+      padding-left: $spacing-lg;
+      position: relative;
+      color: $color-gray-600;
+      font-size: $font-size-sm;
+      
+      [data-theme="dark"] & {
+        color: $color-gray-400;
+      }
+      
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: $color-secondary;
+        font-weight: $font-weight-bold;
+      }
+    }
+    
+    [dir="rtl"] & {
+      text-align: right;
+      
+      li {
+        padding-left: 0;
+        padding-right: $spacing-lg;
+        
+        &::before {
+          left: auto;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+// Doctor Cards
+.doctors__grid {
+  @include grid-auto-fit(300px, $spacing-2xl);
+}
+
+.doctor-card {
+  @include acrylic(0.7);
+  border-radius: $border-radius-lg;
+  border: 1px solid $acrylic-border-light;
+  overflow: hidden;
+  @include fluent-shadow(4);
+  @include transition(all);
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    @include fluent-shadow(16);
+    border-color: $color-primary;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, $color-primary-light 0%, $color-primary 100%);
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    }
+  }
+  
+  &__content {
+    padding: $spacing-xl;
+  }
+  
+  &__name {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-sm;
+    color: $color-gray-900;
+    
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+  
+  &__specialty {
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__experience {
+    color: $color-gray-600;
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-sm;
+    
+    [data-theme="dark"] & {
+      color: $color-gray-400;
+    }
+  }
+  
+  &__availability {
+    margin-top: $spacing-sm;
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+    
+    [data-theme="dark"] & {
+      color: $color-gray-400;
+    }
+  }
+  
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid $color-gray-200;
+    
+    [data-theme="dark"] & {
+      border-top-color: $dark-border;
+    }
+  }
+  
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    color: $color-accent;
+    font-weight: $font-weight-semibold;
+  }
+  
+  &__patients {
+    font-size: $font-size-sm;
+    color: $color-gray-500;
+    
+    [data-theme="dark"] & {
+      color: $color-gray-400;
+    }
+  }
+}
+
+// Stats Cards
+.stats {
+  @include acrylic(0.7);
+  border-radius: $border-radius-lg;
+  padding: $spacing-2xl;
+  margin: $spacing-3xl 0;
+  border: 1px solid $acrylic-border-light;
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  &__grid {
+    @include grid-auto-fit(200px, $spacing-xl);
+    text-align: center;
+  }
+}
+
+.stat-item {
+  &__value {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-extrabold;
+    @include gradient-text(linear-gradient(135deg, $color-primary, $color-accent));
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__label {
+    font-size: $font-size-base;
+    color: $color-gray-600;
+    font-weight: $font-weight-medium;
+    
+    [data-theme="dark"] & {
+      color: $color-gray-400;
+    }
+  }
+}
+
+// Contact Cards
+.contact__grid {
+  @include grid-auto-fit(300px, $spacing-2xl);
+}
+
+.contact-card {
+  @include acrylic(0.7);
+  padding: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  border: 1px solid $acrylic-border-light;
+  text-align: center;
+  @include transition(all);
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  &:hover {
+    @include hover-lift;
+    border-color: $color-primary;
+  }
+  
+  &__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-lg;
+    background: linear-gradient(135deg, $color-primary, $color-accent);
+    border-radius: $border-radius-full;
+    @include flex-center;
+    color: $color-white;
+    @include fluent-shadow(4);
+    
+    i {
+      font-size: $font-size-2xl;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__info {
+    color: $color-gray-600;
+    line-height: 1.8;
+    
+    [data-theme="dark"] & {
+      color: $color-gray-400;
+    }
+  }
+}

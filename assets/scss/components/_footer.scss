@@ -1,0 +1,89 @@
+// ===================================
+// FOOTER - FLUENT DESIGN
+// ===================================
+
+.footer {
+  background: $color-gray-900;
+  color: $color-gray-300;
+  padding: $spacing-3xl 0 $spacing-xl;
+  margin-top: $spacing-3xl;
+  
+  [data-theme="dark"] & {
+    background: $dark-bg-secondary;
+    border-top: 1px solid $dark-border;
+  }
+  
+  &__grid {
+    @include grid-auto-fit(200px, $spacing-2xl);
+    margin-bottom: $spacing-2xl;
+  }
+  
+  &__col {
+    @include respond-below(sm) {
+      text-align: center;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin-bottom: $spacing-md;
+    
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+  
+  &__text {
+    line-height: 1.7;
+    color: $color-gray-400;
+  }
+  
+  &__heading {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-white;
+    margin-bottom: $spacing-md;
+    
+    [data-theme="dark"] & {
+      color: $dark-text-primary;
+    }
+  }
+  
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    
+    a {
+      color: $color-gray-400;
+      @include transition(color, transform);
+      display: inline-block;
+      
+      &:hover {
+        color: $color-primary-light;
+        transform: translateX(4px);
+        
+        [dir="rtl"] & {
+          transform: translateX(-4px);
+        }
+      }
+    }
+    
+    li {
+      color: $color-gray-400;
+    }
+  }
+  
+  &__bottom {
+    text-align: center;
+    padding-top: $spacing-xl;
+    border-top: 1px solid $color-gray-700;
+    color: $color-gray-500;
+    
+    [data-theme="dark"] & {
+      border-top-color: $dark-border;
+    }
+  }
+}

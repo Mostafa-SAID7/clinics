@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Book an appointment at ClinicHub">
     <title>Book Appointment - ClinicHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
@@ -19,15 +20,21 @@
                     <span>ClinicHub</span>
                 </a>
             </div>
-            <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="nav__toggle-icon"></span>
-            </button>
+            <div class="nav__actions">
+                <button class="theme-btn" aria-label="Toggle theme" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-btn" aria-label="Toggle language" title="Toggle language">EN</button>
+                <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="nav__toggle-icon"></span>
+                </button>
+            </div>
             <ul class="nav__menu" role="list">
-                <li><a href="services.html" class="nav__link">Services</a></li>
-                <li><a href="doctors.html" class="nav__link">Doctors</a></li>
-                <li><a href="about.html" class="nav__link">About</a></li>
-                <li><a href="contact.html" class="nav__link">Contact</a></li>
-                <li><a href="appointment.html" class="btn btn--primary btn--small">Book Appointment</a></li>
+                <li><a href="services.html" class="nav__link" data-i18n="nav.services">Services</a></li>
+                <li><a href="doctors.html" class="nav__link" data-i18n="nav.doctors">Doctors</a></li>
+                <li><a href="about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+                <li><a href="contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+                <li><a href="appointment.html" class="btn btn--primary btn--small" data-i18n="nav.bookAppointment">Book Appointment</a></li>
             </ul>
         </nav>
     </header>
@@ -54,37 +61,37 @@
                 </div>
                 <form class="appointment__form" id="appointmentForm" novalidate>
                     <div class="form-group">
-                        <label for="fullName" class="form-label">Full Name</label>
+                        <label for="fullName" class="form-label" data-i18n="form.fullName">Full Name</label>
                         <input type="text" id="fullName" name="fullName" class="form-input" required aria-required="true">
                         <span class="form-error" role="alert"></span>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label" data-i18n="form.email">Email</label>
                         <input type="email" id="email" name="email" class="form-input" required aria-required="true">
                         <span class="form-error" role="alert"></span>
                     </div>
                     <div class="form-group">
-                        <label for="phone" class="form-label">Phone Number</label>
+                        <label for="phone" class="form-label" data-i18n="form.phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" class="form-input" required aria-required="true">
                         <span class="form-error" role="alert"></span>
                     </div>
                     <div class="form-group">
-                        <label for="date" class="form-label">Preferred Date</label>
+                        <label for="date" class="form-label" data-i18n="form.date">Preferred Date</label>
                         <input type="date" id="date" name="date" class="form-input" required aria-required="true">
                         <span class="form-error" role="alert"></span>
                     </div>
                     <div class="form-group">
-                        <label for="department" class="form-label">Department</label>
+                        <label for="department" class="form-label" data-i18n="form.department">Department</label>
                         <select id="department" name="department" class="form-input" required aria-required="true">
-                            <option value="">Select Department</option>
+                            <option value="" data-i18n="form.selectDepartment">Select Department</option>
                         </select>
                         <span class="form-error" role="alert"></span>
                     </div>
                     <div class="form-group">
-                        <label for="message" class="form-label">Message (Optional)</label>
+                        <label for="message" class="form-label" data-i18n="form.message">Message (Optional)</label>
                         <textarea id="message" name="message" class="form-input" rows="4"></textarea>
                     </div>
-                    <button type="submit" class="btn btn--primary btn--large btn--full">Book Appointment</button>
+                    <button type="submit" class="btn btn--primary btn--large btn--full" data-i18n="form.submit">Book Appointment</button>
                 </form>
             </div>
         </div>
@@ -123,7 +130,11 @@
         </div>
     </footer>
 
+    <script src="../assets/js/i18n.js"></script>
+    <script src="../assets/js/theme.js"></script>
     <script src="../assets/js/data-loader.js"></script>
+    <script src="../assets/js/chat-ai.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/appointment.js"></script>
 </body>

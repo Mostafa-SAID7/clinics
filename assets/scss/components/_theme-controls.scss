@@ -1,0 +1,63 @@
+// ===================================
+// THEME & LANGUAGE CONTROLS (IN HEADER)
+// ===================================
+
+.theme-btn,
+.lang-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: $border-radius;
+  background: transparent;
+  border: 1px solid $color-gray-200;
+  @include flex-center;
+  cursor: pointer;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-gray-700;
+  @include transition(all);
+  
+  [data-theme="dark"] & {
+    border-color: $dark-border;
+    color: $dark-text-secondary;
+  }
+  
+  &:hover {
+    background: $color-gray-100;
+    border-color: $color-primary;
+    color: $color-primary;
+    
+    [data-theme="dark"] & {
+      background: $dark-bg-tertiary;
+      color: $color-primary-light;
+    }
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  i {
+    font-size: $font-size-lg;
+  }
+  
+  @include respond-below(md) {
+    width: 36px;
+    height: 36px;
+    font-size: $font-size-sm;
+    
+    i {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.lang-btn {
+  min-width: 40px;
+  padding: 0 $spacing-sm;
+  font-size: $font-size-sm;
+  
+  @include respond-below(md) {
+    min-width: 36px;
+    font-size: $font-size-xs;
+  }
+}

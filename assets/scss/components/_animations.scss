@@ -1,0 +1,159 @@
+// ===================================
+// ANIMATIONS & KEYFRAMES
+// ===================================
+
+// Fade In Up
+@include keyframes(fadeInUp) {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Fade In Right
+@include keyframes(fadeInRight) {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Fade In
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Slide Up
+@include keyframes(slideUp) {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Typing Indicator
+@include keyframes(typing) {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+// Spin
+@include keyframes(spin) {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Pulse
+@include keyframes(pulse) {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Bounce
+@include keyframes(bounce) {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// Shake
+@include keyframes(shake) {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+// Scale In
+@include keyframes(scaleIn) {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Shimmer (Loading Effect)
+@include keyframes(shimmer) {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+// Animation Utility Classes
+.animate {
+  &-fade-in {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  &-fade-in-up {
+    animation: fadeInUp 0.6s ease;
+  }
+  
+  &-fade-in-right {
+    animation: fadeInRight 0.6s ease;
+  }
+  
+  &-slide-up {
+    animation: slideUp 0.4s ease;
+  }
+  
+  &-pulse {
+    animation: pulse 2s ease infinite;
+  }
+  
+  &-bounce {
+    animation: bounce 1s ease infinite;
+  }
+  
+  &-spin {
+    animation: spin 1s linear infinite;
+  }
+}
+
+// Stagger Animation Delays
+@for $i from 1 through 10 {
+  .animate-delay-#{$i} {
+    animation-delay: #{$i * 0.1}s;
+  }
+}

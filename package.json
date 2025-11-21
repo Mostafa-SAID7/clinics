@@ -1,0 +1,24 @@
+{
+  "name": "clinichub",
+  "version": "1.0.0",
+  "description": "Modern healthcare website with Microsoft Fluent Design",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass assets/scss/main.scss assets/css/main.css --style=compressed --no-source-map",
+    "sass:watch": "sass assets/scss/main.scss assets/css/main.css --watch --style=expanded",
+    "sass:dev": "sass assets/scss/main.scss assets/css/main.css --watch --style=expanded --source-map",
+    "build": "npm run sass"
+  },
+  "keywords": [
+    "healthcare",
+    "clinic",
+    "fluent-design",
+    "sass",
+    "responsive"
+  ],
+  "author": "ClinicHub Team",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}

@@ -1,0 +1,27 @@
+// ===================================
+// CLINICHUB - MAIN SCSS
+// Microsoft Fluent Design System
+// Expert Frontend Architecture
+// ===================================
+
+// 1. Configuration
+@import 'variables';
+@import 'mixins';
+
+// 2. Base & Reset
+@import 'base';
+
+// 3. Utilities
+@import 'utilities';
+
+// 4. Components
+@import 'components/buttons';
+@import 'components/navigation';
+@import 'components/hero';
+@import 'components/cards';
+@import 'components/forms';
+@import 'components/footer';
+@import 'components/theme-controls';
+@import 'components/chat';
+@import 'components/toast';
+@import 'components/animations';

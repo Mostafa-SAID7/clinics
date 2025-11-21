@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Intelligent Clinic Discovery - ClinicHub">
+    <title>Find Clinics - ClinicHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/clinic-discovery.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <div class="nav__brand">
+                <a href="../index.html" class="nav__logo" aria-label="ClinicHub Home">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <rect x="14" y="8" width="4" height="16" fill="currentColor"/>
+                        <rect x="8" y="14" width="16" height="4" fill="currentColor"/>
+                    </svg>
+                    <span>ClinicHub</span>
+                </a>
+            </div>
+            <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="nav__toggle-icon"></span>
+            </button>
+            <ul class="nav__menu" role="list">
+                <li><a href="appointments-dashboard.html" class="nav__link">Appointments</a></li>
+                <li><a href="clinic-discovery.html" class="nav__link">Find Clinics</a></li>
+                <li><a href="patient-journey.html" class="nav__link">My Journey</a></li>
+                <li><a href="queue-management.html" class="nav__link">Queue Status</a></li>
+                <li><a href="appointment.html" class="btn btn--primary btn--small">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero__title">Intelligent Clinic Discovery</h1>
+            <p class="page-hero__subtitle">Find the perfect clinic based on your needs</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search clinics by name, location, or specialty...">
+                <button class="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2"/>
+                        <path d="M14 14L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="discovery-filters">
+                <div class="filter-section">
+                    <h3 class="filter-title">Specialty</h3>
+                    <div id="specialtyFilters" class="filter-chips"></div>
+                </div>
+                
+                <div class="filter-section">
+                    <h3 class="filter-title">Insurance</h3>
+                    <div id="insuranceFilters" class="filter-chips"></div>
+                </div>
+                
+                <div class="filter-section">
+                    <h3 class="filter-title">Sort By</h3>
+                    <select id="sortBy" class="filter-select">
+                        <option value="score">Performance Score</option>
+                        <option value="rating">Rating</option>
+                        <option value="distance">Distance</option>
+                        <option value="wait-time">Wait Time</option>
+                    </select>
+                </div>
+                
+                <div class="filter-section">
+                    <h3 class="filter-title">Rating</h3>
+                    <div class="rating-filter">
+                        <input type="range" id="ratingFilter" min="0" max="5" step="0.1" value="0" class="rating-slider">
+                        <span id="ratingValue" class="rating-value">All Ratings</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-header">
+                <span id="resultsCount" class="results-count">Loading clinics...</span>
+                <button id="clearFilters" class="btn btn--secondary btn--small">Clear Filters</button>
+            </div>
+
+            <!-- Clinics Grid -->
+            <div id="clinicsGrid" class="clinics-grid"></div>
+        </div>
+    </section>
+
+    <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <h3 class="footer__title" id="footerTitle"></h3>
+                    <p class="footer__text" id="footerDescription"></p>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Quick Links</h4>
+                    <ul class="footer__links" role="list">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Contact</h4>
+                    <ul class="footer__links" role="list" id="footerContact"></ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Hours</h4>
+                    <ul class="footer__links" role="list" id="footerHours"></ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 ClinicHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/data-loader.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/clinic-discovery.js"></script>
+</body>
+</html>

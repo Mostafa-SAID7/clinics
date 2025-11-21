@@ -1,0 +1,120 @@
+{
+  "en": {
+    "nav": {
+      "services": "Services",
+      "doctors": "Doctors",
+      "about": "About",
+      "contact": "Contact",
+      "bookAppointment": "Book Appointment"
+    },
+    "hero": {
+      "title": "Your Health, Our Priority",
+      "subtitle": "Experience world-class healthcare with ClinicHub. Connect with top doctors and manage your health journey seamlessly.",
+      "bookNow": "Book Appointment",
+      "ourServices": "Our Services"
+    },
+    "sections": {
+      "services": "Our Services",
+      "servicesSubtitle": "Comprehensive healthcare solutions tailored to your needs",
+      "doctors": "Meet Our Doctors",
+      "doctorsSubtitle": "Experienced professionals dedicated to your wellbeing"
+    },
+    "stats": {
+      "patients": "Happy Patients",
+      "doctors": "Expert Doctors",
+      "experience": "Years Experience",
+      "services": "Medical Services"
+    },
+    "footer": {
+      "quickLinks": "Quick Links",
+      "contact": "Contact",
+      "hours": "Hours",
+      "rights": "All rights reserved"
+    },
+    "form": {
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "date": "Preferred Date",
+      "department": "Department",
+      "message": "Message (Optional)",
+      "submit": "Book Appointment",
+      "selectDepartment": "Select Department",
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidPhone": "Please enter a valid phone number",
+      "invalidDate": "Please select a future date",
+      "success": "Appointment booked successfully! We will contact you soon.",
+      "error": "Please fix the errors in the form"
+    },
+    "chat": {
+      "title": "AI Assistant",
+      "placeholder": "Ask me anything about our services...",
+      "send": "Send",
+      "greeting": "Hello! I'm your ClinicHub AI assistant. How can I help you today?"
+    },
+    "theme": {
+      "light": "Light Mode",
+      "dark": "Dark Mode"
+    }
+  },
+  "ar": {
+    "nav": {
+      "services": "الخدمات",
+      "doctors": "الأطباء",
+      "about": "من نحن",
+      "contact": "اتصل بنا",
+      "bookAppointment": "احجز موعد"
+    },
+    "hero": {
+      "title": "صحتك أولويتنا",
+      "subtitle": "استمتع برعاية صحية عالمية المستوى مع ClinicHub. تواصل مع أفضل الأطباء وأدر رحلتك الصحية بسلاسة.",
+      "bookNow": "احجز موعد",
+      "ourServices": "خدماتنا"
+    },
+    "sections": {
+      "services": "خدماتنا",
+      "servicesSubtitle": "حلول رعاية صحية شاملة مصممة خصيصاً لاحتياجاتك",
+      "doctors": "تعرف على أطبائنا",
+      "doctorsSubtitle": "محترفون ذوو خبرة مكرسون لرفاهيتك"
+    },
+    "stats": {
+      "patients": "مريض سعيد",
+      "doctors": "طبيب خبير",
+      "experience": "سنوات خبرة",
+      "services": "خدمة طبية"
+    },
+    "footer": {
+      "quickLinks": "روابط سريعة",
+      "contact": "اتصل بنا",
+      "hours": "ساعات العمل",
+      "rights": "جميع الحقوق محفوظة"
+    },
+    "form": {
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "date": "التاريخ المفضل",
+      "department": "القسم",
+      "message": "رسالة (اختياري)",
+      "submit": "احجز موعد",
+      "selectDepartment": "اختر القسم",
+      "required": "هذا الحقل مطلوب",
+      "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صالح",
+      "invalidPhone": "يرجى إدخال رقم هاتف صالح",
+      "invalidDate": "يرجى اختيار تاريخ مستقبلي",
+      "success": "تم حجز الموعد بنجاح! سنتواصل معك قريباً.",
+      "error": "يرجى إصلاح الأخطاء في النموذج"
+    },
+    "chat": {
+      "title": "المساعد الذكي",
+      "placeholder": "اسألني أي شيء عن خدماتنا...",
+      "send": "إرسال",
+      "greeting": "مرحباً! أنا مساعد ClinicHub الذكي. كيف يمكنني مساعدتك اليوم؟"
+    },
+    "theme": {
+      "light": "الوضع النهاري",
+      "dark": "الوضع الليلي"
+    }
+  }
+}

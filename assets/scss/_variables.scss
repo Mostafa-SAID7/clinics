@@ -1,0 +1,120 @@
+// ===================================
+// MICROSOFT FLUENT DESIGN VARIABLES
+// ===================================
+
+// Color System - Microsoft Fluent
+$color-primary: #0078d4;
+$color-primary-dark: #005a9e;
+$color-primary-light: #50e6ff;
+$color-secondary: #00b7c3;
+$color-secondary-dark: #038387;
+$color-accent: #8764b8;
+$color-success: #107c10;
+$color-warning: #ff8c00;
+$color-error: #d13438;
+
+// Neutral Colors - Light Theme
+$color-white: #ffffff;
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-200: #e5e7eb;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+$color-gray-900: #111827;
+
+// Dark Theme Colors
+$dark-bg-primary: #1a1a1a;
+$dark-bg-secondary: #2d2d2d;
+$dark-bg-tertiary: #3a3a3a;
+$dark-border: rgba(255, 255, 255, 0.1);
+$dark-text-primary: #f5f5f5;
+$dark-text-secondary: #e5e5e5;
+
+// Typography
+$font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-mono: 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+
+// Font Sizes - Fluid Typography
+$font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+$font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+$font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+$font-size-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);
+$font-size-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+$font-size-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem);
+$font-size-3xl: clamp(1.875rem, 1.65rem + 1.125vw, 2.25rem);
+$font-size-4xl: clamp(2.25rem, 1.95rem + 1.5vw, 3rem);
+$font-size-5xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Spacing Scale - Fluid
+$spacing-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem);
+$spacing-sm: clamp(0.5rem, 0.45rem + 0.25vw, 0.625rem);
+$spacing-md: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+$spacing-lg: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+$spacing-xl: clamp(2rem, 1.75rem + 1.25vw, 2.5rem);
+$spacing-2xl: clamp(3rem, 2.5rem + 2.5vw, 4rem);
+$spacing-3xl: clamp(4rem, 3.25rem + 3.75vw, 6rem);
+
+// Layout
+$container-max-width: 1400px;
+$container-padding: clamp(1rem, 2vw, 2rem);
+
+// Border Radius - Fluent Design
+$border-radius-sm: 2px;
+$border-radius: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-full: 9999px;
+
+// Transitions
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Microsoft Fluent Shadows
+$shadow-2: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+$shadow-4: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
+$shadow-8: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+$shadow-16: 0 12.8px 28.8px 0 rgba(0, 0, 0, 0.132), 0 2.4px 7.2px 0 rgba(0, 0, 0, 0.108);
+$shadow-64: 0 25.6px 57.6px 0 rgba(0, 0, 0, 0.22), 0 4.8px 14.4px 0 rgba(0, 0, 0, 0.18);
+
+// Acrylic Effect
+$acrylic-bg-light: rgba(255, 255, 255, 0.7);
+$acrylic-bg-dark: rgba(30, 30, 30, 0.7);
+$acrylic-border-light: rgba(255, 255, 255, 0.2);
+$acrylic-border-dark: rgba(255, 255, 255, 0.1);
+$acrylic-blur: 30px;
+
+// Z-Index Scale
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Breakpoints
+$breakpoint-xs: 375px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Grid
+$grid-columns: 12;
+$grid-gutter: $spacing-lg;

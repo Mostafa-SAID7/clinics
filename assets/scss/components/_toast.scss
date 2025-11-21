@@ -1,0 +1,60 @@
+// ===================================
+// TOAST NOTIFICATIONS
+// ===================================
+
+.toast {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  @include acrylic(0.95);
+  color: $color-white;
+  padding: $spacing-lg $spacing-xl;
+  border-radius: $border-radius-md;
+  @include fluent-shadow(64);
+  transform: translateY(200%);
+  @include transition(transform);
+  z-index: $z-index-tooltip;
+  max-width: 400px;
+  border: 1px solid $acrylic-border-light;
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  @include respond-below(md) {
+    left: $spacing-md;
+    right: $spacing-md;
+    bottom: $spacing-md;
+    max-width: none;
+  }
+  
+  [dir="rtl"] & {
+    right: auto;
+    left: $spacing-xl;
+    
+    @include respond-below(md) {
+      left: $spacing-md;
+      right: $spacing-md;
+    }
+  }
+  
+  &.show {
+    transform: translateY(0);
+  }
+  
+  &.success {
+    background: linear-gradient(135deg, $color-success, darken($color-success, 10%));
+  }
+  
+  &.error {
+    background: linear-gradient(135deg, $color-error, darken($color-error, 10%));
+  }
+  
+  &.warning {
+    background: linear-gradient(135deg, $color-warning, darken($color-warning, 10%));
+  }
+  
+  &.info {
+    background: linear-gradient(135deg, $color-primary, $color-accent);
+  }
+}
