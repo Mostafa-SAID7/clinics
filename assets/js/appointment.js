@@ -68,7 +68,7 @@ const clearFormData = () => {
     localStorage.removeItem(FORM_STORAGE_KEY);
 };
 
-(async () => {
+const loadAppointmentContent = async () => {
     const departmentSelect = document.getElementById('department');
     const form = document.getElementById('appointmentForm');
     
@@ -76,8 +76,12 @@ const clearFormData = () => {
         try {
             const departments = await DataLoader.getDepartments();
             
-            // Keep the first option (Select Department)
+            // Clear existing options except the first one
             const firstOption = departmentSelect.querySelector('option[value=""]');
+            departmentSelect.innerHTML = '';
+            if (firstOption) {
+                departmentSelect.appendChild(firstOption);
+            }
             
             departments.forEach(dept => {
                 const option = document.createElement('option');
@@ -93,8 +97,8 @@ const clearFormData = () => {
         }
     }
     
-    // Auto-save form data on input
-    if (form) {
+    // Auto-save form data on input (only set up once)
+    if (form && !form.dataset.listenersAdded) {
         const inputs = form.querySelectorAll('input, select, textarea');
         inputs.forEach(input => {
             input.addEventListener('input', debounce(saveFormData, 500));
@@ -110,7 +114,16 @@ const clearFormData = () => {
                 }
             }, 2000);
         });
+        
+        form.dataset.listenersAdded = 'true';
     }
     
     await DataLoader.populateFooter();
-})();
+    I18n.updatePageContent();
+};
+
+// Make reload function available globally
+window.reloadPageContent = loadAppointmentContent;
+
+// Initial load
+loadAppointmentContent();

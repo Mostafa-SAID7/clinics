@@ -4,7 +4,7 @@
 
 'use strict';
 
-(async () => {
+const loadAboutContent = async () => {
     const statsGrid = document.getElementById('statsGrid');
     
     if (statsGrid) {
@@ -23,4 +23,11 @@
     }
     
     await DataLoader.populateFooter();
-})();
+    I18n.updatePageContent();
+};
+
+// Make reload function available globally
+window.reloadPageContent = loadAboutContent;
+
+// Initial load
+loadAboutContent();

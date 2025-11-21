@@ -13,16 +13,41 @@ const I18n = (() => {
     const TRANSLATIONS_PATH = isInPages ? '../data/translations.json' : 'data/translations.json';
     
     /**
-     * Load translations from JSON file
+     * Load translations from JSON file using AJAX
      */
     const loadTranslations = async () => {
         try {
-            const response = await fetch(TRANSLATIONS_PATH);
-            if (!response.ok) throw new Error('Failed to load translations');
-            translations = await response.json();
+            // Use AjaxUtils if available, otherwise fallback to XMLHttpRequest
+            if (typeof AjaxUtils !== 'undefined') {
+                translations = await AjaxUtils.loadJSON(TRANSLATIONS_PATH);
+            } else {
+                // Fallback XMLHttpRequest
+                translations = await new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                try {
+                                    resolve(JSON.parse(xhr.responseText));
+                                } catch (error) {
+                                    reject(new Error('Failed to parse JSON: ' + error.message));
+                                }
+                            } else {
+                                reject(new Error(`HTTP error! status: ${xhr.status}`));
+                            }
+                        }
+                    };
+                    xhr.onerror = () => reject(new Error('Network error'));
+                    xhr.open('GET', TRANSLATIONS_PATH, true);
+                    xhr.timeout = 10000;
+                    xhr.send();
+                });
+            }
+            
+            console.log('✓ Translations loaded successfully via AJAX');
             return translations;
         } catch (error) {
-            console.error('Error loading translations:', error);
+            console.error('✗ Error loading translations:', error);
             return null;
         }
     };
@@ -84,6 +109,8 @@ const I18n = (() => {
             
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = translation;
+            } else if (element.tagName === 'OPTION') {
+                element.textContent = translation;
             } else {
                 element.textContent = translation;
             }
@@ -93,6 +120,18 @@ const I18n = (() => {
         document.querySelectorAll('[data-i18n-html]').forEach(element => {
             const key = element.getAttribute('data-i18n-html');
             element.innerHTML = t(key);
+        });
+        
+        // Update placeholders with data-i18n-placeholder
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            element.placeholder = t(key);
+        });
+        
+        // Update title attributes
+        document.querySelectorAll('[data-i18n-title]').forEach(element => {
+            const key = element.getAttribute('data-i18n-title');
+            element.setAttribute('title', t(key));
         });
     };
     

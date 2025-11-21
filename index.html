@@ -63,6 +63,29 @@
     <!-- Stats Section -->
     <section class="section">
         <div class="container">
+            <!-- Skeleton Loader -->
+            <div class="skeleton-stats">
+                <div class="skeleton-stats__grid">
+                    <div class="skeleton-stats__item">
+                        <div class="skeleton-stats__item-value"></div>
+                        <div class="skeleton-stats__item-label"></div>
+                    </div>
+                    <div class="skeleton-stats__item">
+                        <div class="skeleton-stats__item-value"></div>
+                        <div class="skeleton-stats__item-label"></div>
+                    </div>
+                    <div class="skeleton-stats__item">
+                        <div class="skeleton-stats__item-value"></div>
+                        <div class="skeleton-stats__item-label"></div>
+                    </div>
+                    <div class="skeleton-stats__item">
+                        <div class="skeleton-stats__item-value"></div>
+                        <div class="skeleton-stats__item-label"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actual Content -->
             <div class="stats">
                 <div id="statsGrid" class="stats__grid"></div>
             </div>
@@ -74,6 +97,36 @@
         <div class="container">
             <h2 id="services-title" class="section__title" data-i18n="sections.services">Our Services</h2>
             <p class="section__subtitle" data-i18n="sections.servicesSubtitle">Comprehensive healthcare solutions tailored to your needs</p>
+            
+            <!-- Skeleton Loaders -->
+            <div class="services__grid">
+                <div class="skeleton-service">
+                    <div class="skeleton-service__icon"></div>
+                    <div class="skeleton-service__title"></div>
+                    <div class="skeleton-service__text"></div>
+                    <div class="skeleton-service__text"></div>
+                </div>
+                <div class="skeleton-service">
+                    <div class="skeleton-service__icon"></div>
+                    <div class="skeleton-service__title"></div>
+                    <div class="skeleton-service__text"></div>
+                    <div class="skeleton-service__text"></div>
+                </div>
+                <div class="skeleton-service">
+                    <div class="skeleton-service__icon"></div>
+                    <div class="skeleton-service__title"></div>
+                    <div class="skeleton-service__text"></div>
+                    <div class="skeleton-service__text"></div>
+                </div>
+                <div class="skeleton-service">
+                    <div class="skeleton-service__icon"></div>
+                    <div class="skeleton-service__title"></div>
+                    <div class="skeleton-service__text"></div>
+                    <div class="skeleton-service__text"></div>
+                </div>
+            </div>
+            
+            <!-- Actual Content -->
             <div id="servicesGrid" class="services__grid"></div>
         </div>
     </section>
@@ -83,6 +136,36 @@
         <div class="container">
             <h2 id="doctors-title" class="section__title" data-i18n="sections.doctors">Meet Our Doctors</h2>
             <p class="section__subtitle" data-i18n="sections.doctorsSubtitle">Experienced professionals dedicated to your wellbeing</p>
+            
+            <!-- Skeleton Loaders -->
+            <div class="doctors__grid">
+                <div class="skeleton-doctor">
+                    <div class="skeleton-doctor__image"></div>
+                    <div class="skeleton-doctor__content">
+                        <div class="skeleton-doctor__name"></div>
+                        <div class="skeleton-doctor__specialty"></div>
+                        <div class="skeleton-doctor__experience"></div>
+                    </div>
+                </div>
+                <div class="skeleton-doctor">
+                    <div class="skeleton-doctor__image"></div>
+                    <div class="skeleton-doctor__content">
+                        <div class="skeleton-doctor__name"></div>
+                        <div class="skeleton-doctor__specialty"></div>
+                        <div class="skeleton-doctor__experience"></div>
+                    </div>
+                </div>
+                <div class="skeleton-doctor">
+                    <div class="skeleton-doctor__image"></div>
+                    <div class="skeleton-doctor__content">
+                        <div class="skeleton-doctor__name"></div>
+                        <div class="skeleton-doctor__specialty"></div>
+                        <div class="skeleton-doctor__experience"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actual Content -->
             <div id="doctorsGrid" class="doctors__grid"></div>
         </div>
     </section>
@@ -142,6 +225,9 @@
     <!-- Toast Notification -->
     <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
 
+    <!-- Core Scripts -->
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/ajax-utils.js"></script>
     <script src="assets/js/i18n.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/data-loader.js"></script>

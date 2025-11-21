@@ -18,11 +18,11 @@ const loadHomeContent = async () => {
         // Load site info
         const siteInfo = await DataLoader.getSiteInfo();
         
-        // Update hero section
+        // Update hero section with translations
         const heroTitle = document.getElementById('heroTitle');
         const heroSubtitle = document.getElementById('heroSubtitle');
-        if (heroTitle) heroTitle.textContent = siteInfo.tagline || 'Your Health, Our Priority';
-        if (heroSubtitle) heroSubtitle.textContent = siteInfo.description || '';
+        if (heroTitle) heroTitle.textContent = I18n.t('hero.title');
+        if (heroSubtitle) heroSubtitle.textContent = I18n.t('hero.subtitle');
         
         // Load stats
         const statsGrid = document.getElementById('statsGrid');
@@ -57,6 +57,9 @@ const loadHomeContent = async () => {
         const doctorsGrid = document.getElementById('doctorsGrid');
         if (doctorsGrid) {
             const doctors = await DataLoader.getDoctors();
+            const currentLang = I18n.getCurrentLanguage();
+            const patientsText = currentLang === 'ar' ? 'مريض' : 'patients';
+            
             doctorsGrid.innerHTML = doctors.slice(0, 3).map(doctor => `
                 <article class="doctor-card">
                     <div class="doctor-card__image" role="img" aria-label="${doctor.name}"></div>
@@ -66,7 +69,7 @@ const loadHomeContent = async () => {
                         <p class="doctor-card__experience">${doctor.experience}</p>
                         <div class="doctor-card__meta">
                             <span class="doctor-card__rating">⭐ ${doctor.rating}</span>
-                            <span class="doctor-card__patients">${doctor.patients}+ patients</span>
+                            <span class="doctor-card__patients">${doctor.patients}+ ${patientsText}</span>
                         </div>
                     </div>
                 </article>
@@ -76,8 +79,21 @@ const loadHomeContent = async () => {
         // Populate footer
         await DataLoader.populateFooter();
         
+        // Update all i18n elements
+        I18n.updatePageContent();
+        
+        // Complete page loader
+        if (typeof PageLoader !== 'undefined') {
+            PageLoader.complete();
+        }
+        
     } catch (error) {
         console.error('Error loading home page data:', error);
+        
+        // Hide loader even on error
+        if (typeof PageLoader !== 'undefined') {
+            PageLoader.complete();
+        }
     }
 };
 

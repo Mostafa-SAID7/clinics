@@ -1,16 +1,18 @@
 /**
  * Data Loader Module
- * Handles loading and caching of data.json
+ * Handles loading and caching of data.json using AJAX
  */
 
 'use strict';
 
 const DataLoader = (() => {
     let cachedData = null;
-    const DATA_PATH = '../data/data.json';
+    // Detect if we're in root or pages folder
+    const isInPages = window.location.pathname.includes('/pages/');
+    const DATA_PATH = isInPages ? '../data/data.json' : 'data/data.json';
     
     /**
-     * Fetch data from JSON file
+     * Fetch data from JSON file using AJAX
      * @returns {Promise<Object>} Data object
      */
     const fetchData = async () => {
@@ -19,14 +21,37 @@ const DataLoader = (() => {
         }
         
         try {
-            const response = await fetch(DATA_PATH);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            // Use AjaxUtils if available, otherwise fallback to XMLHttpRequest
+            if (typeof AjaxUtils !== 'undefined') {
+                cachedData = await AjaxUtils.loadJSON(DATA_PATH);
+            } else {
+                // Fallback XMLHttpRequest
+                cachedData = await new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                try {
+                                    resolve(JSON.parse(xhr.responseText));
+                                } catch (error) {
+                                    reject(new Error('Failed to parse JSON: ' + error.message));
+                                }
+                            } else {
+                                reject(new Error(`HTTP error! status: ${xhr.status}`));
+                            }
+                        }
+                    };
+                    xhr.onerror = () => reject(new Error('Network error'));
+                    xhr.open('GET', DATA_PATH, true);
+                    xhr.timeout = 10000;
+                    xhr.send();
+                });
             }
-            cachedData = await response.json();
+            
+            console.log('✓ Data loaded successfully via AJAX');
             return cachedData;
         } catch (error) {
-            console.error('Error loading data:', error);
+            console.error('✗ Error loading data:', error);
             return null;
         }
     };

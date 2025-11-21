@@ -378,35 +378,57 @@ const HeaderScroll = (() => {
 // LANGUAGE TOGGLE MODULE
 // ===================================
 const LanguageToggle = (() => {
-    const langBtn = document.querySelector('.lang-btn');
-    
     /**
      * Update language button text
      */
     const updateButton = () => {
-        if (langBtn) {
-            const currentLang = I18n.getCurrentLanguage();
-            langBtn.textContent = currentLang.toUpperCase();
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const currentLang = I18n.getCurrentLanguage();
+        
+        langBtns.forEach(btn => {
+            btn.textContent = currentLang.toUpperCase();
+            btn.setAttribute('title', currentLang === 'en' ? 'Switch to Arabic' : 'Switch to English');
+        });
+    };
+    
+    /**
+     * Handle language toggle
+     */
+    const handleToggle = async () => {
+        const newLang = I18n.toggleLanguage();
+        updateButton();
+        I18n.updatePageContent();
+        
+        // Update chat placeholder if exists
+        const chatInput = document.querySelector('.chat-input');
+        if (chatInput) {
+            chatInput.placeholder = I18n.t('chat.placeholder');
         }
+        
+        // Reload dynamic content
+        if (typeof window.reloadPageContent === 'function') {
+            await window.reloadPageContent();
+        }
+        
+        // Show notification
+        showToast(
+            newLang === 'ar' ? 'تم التبديل إلى اللغة العربية' : 'Switched to English',
+            'success',
+            2000
+        );
     };
     
     /**
      * Initialize language toggle
      */
     const init = () => {
-        if (!langBtn) return;
+        const langBtns = document.querySelectorAll('.lang-btn');
+        if (langBtns.length === 0) return;
         
         updateButton();
         
-        langBtn.addEventListener('click', async () => {
-            I18n.toggleLanguage();
-            updateButton();
-            I18n.updatePageContent();
-            
-            // Reload dynamic content
-            if (typeof window.reloadPageContent === 'function') {
-                await window.reloadPageContent();
-            }
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', handleToggle);
         });
     };
     

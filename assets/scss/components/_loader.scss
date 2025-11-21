@@ -1,0 +1,380 @@
+// ===================================
+// LOADING PROGRESS BAR & SKELETON
+// ===================================
+
+// Initial Page Loader
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  &__content {
+    text-align: center;
+    color: $color-white;
+  }
+  
+  &__logo {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-extrabold;
+    margin-bottom: $spacing-xl;
+    animation: pulse 2s ease-in-out infinite;
+    
+    svg {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto $spacing-lg;
+      animation: rotate 2s linear infinite;
+    }
+  }
+  
+  &__text {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-2xl;
+    opacity: 0.9;
+  }
+  
+  &__progress {
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: $border-radius-full;
+    overflow: hidden;
+    position: relative;
+    
+    @include respond-below(sm) {
+      width: 250px;
+    }
+  }
+  
+  &__bar {
+    height: 100%;
+    background: $color-white;
+    border-radius: $border-radius-full;
+    width: 0%;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  &__percentage {
+    margin-top: $spacing-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    opacity: 0.8;
+  }
+}
+
+// Skeleton Loader Base
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    $color-gray-200 0%,
+    $color-gray-100 50%,
+    $color-gray-200 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: $border-radius;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(
+      90deg,
+      $dark-bg-secondary 0%,
+      $dark-bg-tertiary 50%,
+      $dark-bg-secondary 100%
+    );
+    background-size: 200% 100%;
+  }
+  
+  &--text {
+    height: 1rem;
+    margin-bottom: $spacing-sm;
+    border-radius: $border-radius-sm;
+    
+    &:last-child {
+      width: 80%;
+    }
+  }
+  
+  &--title {
+    height: 2rem;
+    margin-bottom: $spacing-md;
+    border-radius: $border-radius;
+  }
+  
+  &--circle {
+    border-radius: $border-radius-full;
+    aspect-ratio: 1;
+  }
+  
+  &--card {
+    height: 200px;
+    border-radius: $border-radius-lg;
+  }
+  
+  &--image {
+    width: 100%;
+    height: 300px;
+    border-radius: $border-radius-lg;
+  }
+  
+  &--button {
+    height: 48px;
+    width: 150px;
+    border-radius: $border-radius;
+  }
+}
+
+// Skeleton Card
+.skeleton-card {
+  @include acrylic(0.7);
+  padding: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  border: 1px solid $acrylic-border-light;
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: $spacing-lg;
+    @extend .skeleton;
+  }
+  
+  &__title {
+    height: 1.5rem;
+    width: 70%;
+    margin-bottom: $spacing-md;
+    @extend .skeleton;
+  }
+  
+  &__text {
+    height: 1rem;
+    margin-bottom: $spacing-sm;
+    @extend .skeleton;
+    
+    &:last-child {
+      width: 85%;
+    }
+  }
+}
+
+// Skeleton Service Card
+.skeleton-service {
+  @include acrylic(0.7);
+  padding: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  border: 1px solid $acrylic-border-light;
+  text-align: center;
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  &__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-lg;
+    @extend .skeleton;
+    @extend .skeleton--circle;
+  }
+  
+  &__title {
+    height: 1.5rem;
+    width: 60%;
+    margin: 0 auto $spacing-md;
+    @extend .skeleton;
+  }
+  
+  &__text {
+    height: 1rem;
+    margin-bottom: $spacing-sm;
+    @extend .skeleton;
+    
+    &:last-child {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+// Skeleton Doctor Card
+.skeleton-doctor {
+  @include acrylic(0.7);
+  border-radius: $border-radius-lg;
+  border: 1px solid $acrylic-border-light;
+  overflow: hidden;
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 300px;
+    @extend .skeleton;
+    border-radius: 0;
+  }
+  
+  &__content {
+    padding: $spacing-xl;
+  }
+  
+  &__name {
+    height: 1.5rem;
+    width: 70%;
+    margin-bottom: $spacing-md;
+    @extend .skeleton;
+  }
+  
+  &__specialty {
+    height: 1rem;
+    width: 50%;
+    margin-bottom: $spacing-sm;
+    @extend .skeleton;
+  }
+  
+  &__experience {
+    height: 1rem;
+    width: 60%;
+    @extend .skeleton;
+  }
+}
+
+// Skeleton Stats
+.skeleton-stats {
+  @include acrylic(0.7);
+  border-radius: $border-radius-lg;
+  padding: $spacing-2xl;
+  border: 1px solid $acrylic-border-light;
+  
+  [data-theme="dark"] & {
+    border-color: $acrylic-border-dark;
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-xl;
+    text-align: center;
+  }
+  
+  &__item {
+    &-value {
+      height: 3rem;
+      width: 80%;
+      margin: 0 auto $spacing-sm;
+      @extend .skeleton;
+    }
+    
+    &-label {
+      height: 1rem;
+      width: 60%;
+      margin: 0 auto;
+      @extend .skeleton;
+    }
+  }
+}
+
+// Skeleton Hero
+.skeleton-hero {
+  padding: $spacing-3xl 0;
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-3xl;
+    align-items: center;
+    
+    @include respond-below(lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &__content {
+    &-title {
+      height: 3rem;
+      width: 90%;
+      margin-bottom: $spacing-lg;
+      @extend .skeleton;
+    }
+    
+    &-text {
+      height: 1rem;
+      margin-bottom: $spacing-sm;
+      @extend .skeleton;
+      
+      &:last-of-type {
+        width: 85%;
+        margin-bottom: $spacing-2xl;
+      }
+    }
+    
+    &-buttons {
+      display: flex;
+      gap: $spacing-lg;
+      
+      .skeleton {
+        height: 48px;
+        width: 150px;
+      }
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 400px;
+    @extend .skeleton;
+    
+    @include respond-below(md) {
+      height: 300px;
+    }
+  }
+}
+
+// Animations
+@include keyframes(rotate) {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@include keyframes(shimmer) {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// Hide skeleton when content loads
+.content-loaded {
+  .skeleton-card,
+  .skeleton-service,
+  .skeleton-doctor,
+  .skeleton-stats,
+  .skeleton-hero {
+    display: none;
+  }
+}

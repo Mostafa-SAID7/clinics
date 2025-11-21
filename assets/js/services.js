@@ -4,7 +4,7 @@
 
 'use strict';
 
-(async () => {
+const loadServicesContent = async () => {
     const servicesGrid = document.getElementById('servicesGrid');
     
     if (!servicesGrid) return;
@@ -39,8 +39,18 @@
         `).join('');
         
         await DataLoader.populateFooter();
+        I18n.updatePageContent();
     } catch (error) {
         console.error('Error loading services:', error);
-        servicesGrid.innerHTML = '<p>Error loading services. Please try again later.</p>';
+        const errorMsg = I18n.getCurrentLanguage() === 'ar' 
+            ? 'خطأ في تحميل الخدمات. يرجى المحاولة مرة أخرى.' 
+            : 'Error loading services. Please try again later.';
+        servicesGrid.innerHTML = `<p>${errorMsg}</p>`;
     }
-})();
+};
+
+// Make reload function available globally
+window.reloadPageContent = loadServicesContent;
+
+// Initial load
+loadServicesContent();
