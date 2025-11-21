@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Appointment Management - ClinicHub">
+    <title>Appointments Dashboard - ClinicHub</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <div class="nav__brand">
+                <a href="../index.html" class="nav__logo" aria-label="ClinicHub Home">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <rect x="14" y="8" width="4" height="16" fill="currentColor"/>
+                        <rect x="8" y="14" width="16" height="4" fill="currentColor"/>
+                    </svg>
+                    <span>ClinicHub</span>
+                </a>
+            </div>
+            <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="nav__toggle-icon"></span>
+            </button>
+            <ul class="nav__menu" role="list">
+                <li><a href="appointments-dashboard.html" class="nav__link">Appointments</a></li>
+                <li><a href="clinic-discovery.html" class="nav__link">Find Clinics</a></li>
+                <li><a href="patient-journey.html" class="nav__link">My Journey</a></li>
+                <li><a href="queue-management.html" class="nav__link">Queue Status</a></li>
+                <li><a href="appointment.html" class="btn btn--primary btn--small">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero__title">Appointment Dashboard</h1>
+            <p class="page-hero__subtitle">Smart orchestration with real-time availability</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <!-- Filter Controls -->
+            <div class="dashboard-controls">
+                <div class="filter-group">
+                    <label for="filterPriority" class="filter-label">Priority:</label>
+                    <select id="filterPriority" class="filter-select">
+                        <option value="all">All Priorities</option>
+                        <option value="urgent">Urgent</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterType" class="filter-label">Patient Type:</label>
+                    <select id="filterType" class="filter-select">
+                        <option value="all">All Types</option>
+                        <option value="first-time">First-time</option>
+                        <option value="follow-up">Follow-up</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterStatus" class="filter-label">Status:</label>
+                    <select id="filterStatus" class="filter-select">
+                        <option value="all">All Status</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="waiting-list">Waiting List</option>
+                    </select>
+                </div>
+                <button id="refreshBtn" class="btn btn--secondary btn--small">
+                    <span class="refresh-icon">↻</span> Refresh
+                </button>
+            </div>
+
+            <!-- Appointments Grid -->
+            <div id="appointmentsGrid" class="appointments-grid"></div>
+
+            <!-- Waiting List Section -->
+            <div class="waiting-list-section">
+                <h2 class="section__title">Waiting List</h2>
+                <div id="waitingList" class="waiting-list-grid"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <h3 class="footer__title" id="footerTitle"></h3>
+                    <p class="footer__text" id="footerDescription"></p>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Quick Links</h4>
+                    <ul class="footer__links" role="list">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Contact</h4>
+                    <ul class="footer__links" role="list" id="footerContact"></ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Hours</h4>
+                    <ul class="footer__links" role="list" id="footerHours"></ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 ClinicHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/data-loader.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/appointments-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ClinicHub - Modern healthcare management platform connecting patients with quality medical services">
+    <meta name="keywords" content="clinic, healthcare, medical services, appointments, doctors">
+    <meta name="author" content="ClinicHub">
+    <title>ClinicHub - Your Healthcare Partner</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <div class="nav__brand">
+                <a href="#" class="nav__logo" aria-label="ClinicHub Home">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <rect x="14" y="8" width="4" height="16" fill="currentColor"/>
+                        <rect x="8" y="14" width="16" height="4" fill="currentColor"/>
+                    </svg>
+                    <span>ClinicHub</span>
+                </a>
+            </div>
+            <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="nav__toggle-icon"></span>
+            </button>
+            <ul class="nav__menu" role="list">
+                <li><a href="pages/services.html" class="nav__link">Services</a></li>
+                <li><a href="pages/doctors.html" class="nav__link">Doctors</a></li>
+                <li><a href="pages/about.html" class="nav__link">About</a></li>
+                <li><a href="pages/contact.html" class="nav__link">Contact</a></li>
+                <li><a href="pages/appointment.html" class="btn btn--primary btn--small">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-label="Hero section">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title" id="heroTitle">Your Health, Our Priority</h1>
+                <p class="hero__subtitle" id="heroSubtitle">Experience world-class healthcare with ClinicHub. Connect with top doctors and manage your health journey seamlessly.</p>
+                <div class="hero__actions">
+                    <a href="pages/appointment.html" class="btn btn--primary btn--large">Book Appointment</a>
+                    <a href="pages/services.html" class="btn btn--secondary btn--large">Our Services</a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <div class="hero__image-placeholder" role="img" aria-label="Healthcare professional"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <div class="stats">
+                <div id="statsGrid" class="stats__grid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section" role="region" aria-labelledby="services-title">
+        <div class="container">
+            <h2 id="services-title" class="section__title">Our Services</h2>
+            <p class="section__subtitle">Comprehensive healthcare solutions tailored to your needs</p>
+            <div id="servicesGrid" class="services__grid"></div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors section section--alt" role="region" aria-labelledby="doctors-title">
+        <div class="container">
+            <h2 id="doctors-title" class="section__title">Meet Our Doctors</h2>
+            <p class="section__subtitle">Experienced professionals dedicated to your wellbeing</p>
+            <div id="doctorsGrid" class="doctors__grid"></div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <h3 class="footer__title" id="footerTitle"></h3>
+                    <p class="footer__text" id="footerDescription"></p>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Quick Links</h4>
+                    <ul class="footer__links" role="list">
+                        <li><a href="pages/services.html">Services</a></li>
+                        <li><a href="pages/doctors.html">Doctors</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Contact</h4>
+                    <ul class="footer__links" role="list" id="footerContact"></ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Hours</h4>
+                    <ul class="footer__links" role="list" id="footerHours"></ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 ClinicHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="assets/js/data-loader.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/home.js"></script>
+</body>
+</html>
